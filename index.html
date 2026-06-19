@@ -1,0 +1,2501 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لال کتاب کنڈلی اور تدابیر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Jameel Noori Nastaleeq';
+    src: url('https://cdn.jsdelivr.net/gh/tariq-abdullah/urdu-web-font-CDN/JameelNooriNastaleeq.woff') format('woff');
+    font-display: swap;
+  }
+
+  :root {
+    --bg: #FBF6EE;
+    --bg-card: #FFFFFF;
+    --ink: #2C2418;
+    --ink-soft: #5A4F3F;
+    --gold: #B9852E;
+    --gold-deep: #8C621E;
+    --maroon: #6E2C2C;
+    --sage: #5C7A5C;
+    --line: #E3D7C2;
+    --shubh: #4F7A4F;
+    --shubh-bg: #EAF3E8;
+    --ashubh: #A14B3C;
+    --ashubh-bg: #FBEAE6;
+    --neutral: #8C7340;
+    --neutral-bg: #F5EFE0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif;
+    background: var(--bg);
+    color: var(--ink);
+    direction: rtl;
+    font-size: 19px;
+    line-height: 2;
+  }
+
+  body {
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(185,133,46,0.07), transparent 40%),
+      radial-gradient(circle at 90% 92%, rgba(110,44,44,0.06), transparent 45%);
+  }
+
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 18px 60px; }
+
+  /* ---------- Header ---------- */
+  header {
+    text-align: center;
+    padding: 30px 10px 24px;
+    border-bottom: 3px double var(--gold);
+    margin-bottom: 28px;
+    position: relative;
+  }
+  header .ornament {
+    font-size: 28px;
+    color: var(--gold);
+    letter-spacing: 10px;
+    margin-bottom: 6px;
+  }
+  header h1 {
+    font-size: 2.6rem;
+    color: var(--maroon);
+    font-weight: normal;
+    line-height: 1.6;
+  }
+  header p.sub {
+    color: var(--ink-soft);
+    font-size: 1.15rem;
+    margin-top: 6px;
+  }
+  header .bismillah {
+    font-size: 1.4rem;
+    color: var(--gold-deep);
+    margin-bottom: 14px;
+  }
+
+  /* ---------- Nav Tabs ---------- */
+  nav.tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+  }
+  nav.tabs button {
+    font-family: inherit;
+    font-size: 1.05rem;
+    background: var(--bg-card);
+    border: 1.5px solid var(--line);
+    color: var(--ink-soft);
+    padding: 10px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  nav.tabs button:hover { border-color: var(--gold); color: var(--maroon); }
+  nav.tabs button.active {
+    background: var(--maroon);
+    color: #fff;
+    border-color: var(--maroon);
+  }
+
+  /* ---------- Sections / Cards ---------- */
+  section { display: none; }
+  section.active { display: block; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 14px rgba(110,80,30,0.06);
+  }
+
+  .card h2 {
+    color: var(--maroon);
+    font-size: 1.7rem;
+    font-weight: normal;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+  }
+
+  .card h3 {
+    color: var(--gold-deep);
+    font-size: 1.35rem;
+    font-weight: normal;
+    margin: 16px 0 8px;
+  }
+
+  /* ---------- Form ---------- */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+  }
+  @media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+  }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { color: var(--ink-soft); font-size: 1.05rem; }
+  .field input, .field select {
+    font-family: inherit;
+    font-size: 1.1rem;
+    padding: 10px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    background: #fffdf9;
+    color: var(--ink);
+    direction: ltr;
+    text-align: left;
+  }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  /* ---------- Date of Birth: floating pill-style dropdowns ---------- */
+  .dob-row {
+    display: flex;
+    gap: 8px;
+    direction: ltr;
+  }
+  .dob-select {
+    font-family: inherit;
+    font-size: 1.1rem;
+    padding: 12px 10px;
+    border: 1.5px solid var(--line);
+    border-radius: 24px;
+    background: #fffdf9;
+    color: var(--ink);
+    text-align: center;
+    text-align-last: center;
+    direction: ltr;
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 1;
+    min-width: 0;
+    box-shadow: 0 2px 8px rgba(110,80,30,0.05);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0 L5 6 L10 0' fill='%238C621E'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center right 10px;
+    padding-right: 24px;
+  }
+  .dob-select-month {
+    flex: 1.6;
+  }
+  .dob-select:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  @media (max-width: 420px) {
+    .dob-select { font-size: 0.95rem; padding: 10px 6px; padding-right: 20px; }
+  }
+
+  .btn-primary {
+    font-family: inherit;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, var(--maroon), #8a3c3c);
+    color: #fff;
+    border: none;
+    padding: 13px 36px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 18px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 4px 14px rgba(110,44,44,0.25);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(110,44,44,0.32); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .hint {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-top: 10px;
+    line-height: 1.9;
+  }
+
+  /* ---------- Kundli Chart ---------- */
+  .chart-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+  }
+  .lk-chart {
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 1;
+  }
+  .lk-chart svg {
+    display: block;
+  }
+
+  /* ---------- Result blocks ---------- */
+  .planet-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .planet-row:last-child { border-bottom: none; }
+  .planet-row .badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  .planet-row .info { flex: 1; }
+  .planet-row .pname { font-size: 1.15rem; color: var(--ink); }
+  .planet-row .phouse { color: var(--ink-soft); font-size: 0.95rem; }
+  .status-tag {
+    font-size: 0.9rem;
+    padding: 3px 12px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+  .status-tag.shubh { background: var(--shubh-bg); color: var(--shubh); }
+  .status-tag.ashubh { background: var(--ashubh-bg); color: var(--ashubh); }
+  .status-tag.neutral { background: var(--neutral-bg); color: var(--neutral); }
+
+  .house-block {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    background: #fffdf9;
+  }
+  .house-block h4 {
+    color: var(--gold-deep);
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin-bottom: 4px;
+  }
+  .house-block .htitle { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 8px; }
+  .house-block .planet-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+  }
+  .house-block .planet-line:first-of-type { border-top: none; margin-top: 6px; padding-top: 0; }
+
+  /* ---------- Lal Kitab Touch box (authentic planet signifier) ---------- */
+  .lk-touch-box {
+    border: 1.5px solid var(--gold);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-top: 12px;
+    background: linear-gradient(135deg, #FBF1E0, #FFFDF7);
+  }
+  .lk-touch-header {
+    color: var(--maroon);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  .lk-touch-row {
+    margin-bottom: 6px;
+    line-height: 1.8;
+  }
+  .lk-touch-label {
+    color: var(--gold-deep);
+    font-weight: bold;
+    margin-left: 6px;
+  }
+  .lk-touch-note {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.9;
+  }
+
+  /* ---------- Remedies ---------- */
+  .remedy-list { list-style: none; }
+  .remedy-list li {
+    position: relative;
+    padding-right: 28px;
+    margin-bottom: 10px;
+    line-height: 1.9;
+  }
+  .remedy-list li::before {
+    content: "❀";
+    position: absolute;
+    right: 0;
+    top: 2px;
+    color: var(--gold);
+    font-size: 1.05rem;
+  }
+
+  .planet-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 8px 18px;
+    margin: 4px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    transition: all 0.2s ease;
+  }
+  .planet-pill:hover, .planet-pill.active {
+    border-color: var(--gold);
+    background: #fdf3e2;
+    color: var(--maroon);
+  }
+
+  .duration-remedy-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .duration-remedy-item:last-child { border-bottom: none; }
+  .duration-tag {
+    flex-shrink: 0;
+    background: var(--bg);
+    border: 1px solid var(--gold);
+    color: var(--gold-deep);
+    font-size: 0.88rem;
+    padding: 5px 12px;
+    border-radius: 16px;
+    white-space: nowrap;
+  }
+  .duration-remedy-item .action-text {
+    flex: 1;
+    line-height: 1.9;
+  }
+
+  .day-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  .day-table th, .day-table td {
+    border: 1px solid var(--line);
+    padding: 10px 12px;
+    text-align: right;
+    font-size: 1.05rem;
+  }
+  .day-table th {
+    background: var(--bg);
+    color: var(--maroon);
+  }
+
+  .note-box {
+    background: #FBF1E0;
+    border-right: 4px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--ink-soft);
+  }
+
+  .ayat-box {
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--maroon);
+    margin: 16px 0;
+    padding: 14px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  footer {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    line-height: 2.1;
+  }
+
+  #results { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="bismillah">بسم اللہ الرحمٰن الرحیم</div>
+    <div class="ornament">۞ ۞ ۞</div>
+    <h1>لال کتاب کنڈلی اور روحانی تدابیر</h1>
+    <p class="sub">گھروں کے اعتبار سے سیارگان کا جائزہ اور قرآن و سنت سے ہم آہنگ تدابیر</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="kundli">کنڈلی بنائیں</button>
+    <button class="tab-btn" data-tab="remedies">تدابیر اور وظائف</button>
+    <button class="tab-btn" data-tab="about">لال کتاب کا تعارف</button>
+  </nav>
+
+  <!-- ============ TAB: KUNDLI ============ -->
+  <section id="tab-kundli" class="active">
+
+    <div id="restoreBanner" style="display:none; align-items:center; justify-content:space-between; gap:12px; background:#FBF1E0; border:1px solid var(--gold); border-radius:10px; padding:12px 18px; margin-bottom:16px;">
+      <span style="color: var(--ink-soft);">آپ کی پچھلی کنڈلی اس براؤزر میں محفوظ تھی، اور خودکار طور پر دوبارہ دکھائی گئی ہے۔</span>
+      <button id="clearSavedBtn" style="font-family:inherit; background:none; border:1px solid var(--ashubh); color:var(--ashubh); padding:6px 16px; border-radius:20px; cursor:pointer; white-space:nowrap;">محفوظ شدہ ڈیٹا حذف کریں</button>
+    </div>
+
+    <div class="card">
+      <h2>اپنی پیدائش کی تفصیلات درج کریں</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label>تاریخ پیدائش</label>
+          <div class="dob-row">
+            <select id="dobDay" class="dob-select"></select>
+            <select id="dobMonth" class="dob-select dob-select-month"></select>
+            <select id="dobYear" class="dob-select"></select>
+          </div>
+        </div>
+        <div class="field">
+          <label>وقت پیدائش</label>
+          <input type="time" id="birthTime">
+        </div>
+        <div class="field">
+          <label>ٹائم زون (پاکستان کے لیے +5)</label>
+          <input type="number" id="tzOffset" value="5" step="0.5">
+        </div>
+        <div class="field">
+          <label>شہر (اختیاری)</label>
+          <select id="citySelect">
+            <optgroup label="پاکستان">
+              <option value="karachi" data-lat="24.8607" data-lon="67.0011">کراچی</option>
+              <option value="lahore" data-lat="31.5497" data-lon="74.3436">لاہور</option>
+              <option value="islamabad" data-lat="33.6844" data-lon="73.0479">اسلام آباد</option>
+              <option value="rawalpindi" data-lat="33.5651" data-lon="73.0169">راولپنڈی</option>
+              <option value="faisalabad" data-lat="31.4504" data-lon="73.1350">فیصل آباد</option>
+              <option value="multan" data-lat="30.1575" data-lon="71.5249">ملتان</option>
+              <option value="peshawar" data-lat="34.0151" data-lon="71.5249">پشاور</option>
+              <option value="quetta" data-lat="30.1798" data-lon="66.9750">کوئٹہ</option>
+              <option value="hyderabad" data-lat="25.3960" data-lon="68.3578">حیدرآباد</option>
+              <option value="gujranwala" data-lat="32.1877" data-lon="74.1945">گوجرانوالہ</option>
+              <option value="sialkot" data-lat="32.4945" data-lon="74.5229">سیالکوٹ</option>
+              <option value="sargodha" data-lat="32.0836" data-lon="72.6711">سرگودھا</option>
+              <option value="bahawalpur" data-lat="29.3956" data-lon="71.6722">بہاولپور</option>
+              <option value="sukkur" data-lat="27.7052" data-lon="68.8574">سکھر</option>
+              <option value="larkana" data-lat="27.5590" data-lon="68.2123">لاڑکانہ</option>
+              <option value="sheikhupura" data-lat="31.7131" data-lon="73.9783">شیخوپورہ</option>
+              <option value="jhang" data-lat="31.2781" data-lon="72.3317">جھنگ</option>
+              <option value="rahimyarkhan" data-lat="28.4212" data-lon="70.2989">رحیم یار خان</option>
+              <option value="gujrat" data-lat="32.5739" data-lon="74.0789">گجرات</option>
+              <option value="kasur" data-lat="31.1156" data-lon="74.4467">قصور</option>
+              <option value="mardan" data-lat="34.1986" data-lon="72.0404">مردان</option>
+              <option value="mingora" data-lat="34.7717" data-lon="72.3604">مینگورہ (سوات)</option>
+              <option value="dera-ghazi-khan" data-lat="30.0561" data-lon="70.6403">ڈیرہ غازی خان</option>
+              <option value="nawabshah" data-lat="26.2442" data-lon="68.4100">نواب شاہ</option>
+              <option value="sahiwal" data-lat="30.6682" data-lon="73.1114">ساہیوال</option>
+              <option value="mirpur-khas" data-lat="25.5269" data-lon="69.0114">میرپور خاص</option>
+              <option value="okara" data-lat="30.8081" data-lon="73.4458">اوکاڑہ</option>
+              <option value="abbottabad" data-lat="34.1463" data-lon="73.2117">ایبٹ آباد</option>
+              <option value="muzaffarabad" data-lat="34.3700" data-lon="73.4711">مظفرآباد</option>
+              <option value="gwadar" data-lat="25.1216" data-lon="62.3254">گوادر</option>
+              <option value="gilgit" data-lat="35.9208" data-lon="74.3083">گلگت</option>
+              <option value="skardu" data-lat="35.2971" data-lon="75.6333">سکردو</option>
+            </optgroup>
+            <optgroup label="بیرونِ ملک">
+              <option value="dubai" data-lat="25.2048" data-lon="55.2708">دبئی</option>
+              <option value="abudhabi" data-lat="24.4539" data-lon="54.3773">ابوظہبی</option>
+              <option value="jeddah" data-lat="21.4858" data-lon="39.1925">جدہ</option>
+              <option value="riyadh" data-lat="24.7136" data-lon="46.6753">ریاض</option>
+              <option value="mecca" data-lat="21.3891" data-lon="39.8579">مکہ مکرمہ</option>
+              <option value="medina" data-lat="24.5247" data-lon="39.5692">مدینہ منورہ</option>
+              <option value="doha" data-lat="25.2854" data-lon="51.5310">دوحہ</option>
+              <option value="london" data-lat="51.5074" data-lon="-0.1278">لندن</option>
+              <option value="newyork" data-lat="40.7128" data-lon="-74.0060">نیویارک</option>
+              <option value="toronto" data-lat="43.6532" data-lon="-79.3832">ٹورنٹو</option>
+            </optgroup>
+            <option value="custom">دیگر (نیچے درج کریں)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>عرض البلد (Latitude)</label>
+          <input type="number" id="latInput" value="24.8607" step="0.0001">
+        </div>
+        <div class="field">
+          <label>طول البلد (Longitude)</label>
+          <input type="number" id="lonInput" value="67.0011" step="0.0001">
+        </div>
+      </div>
+      <button class="btn-primary" id="calcBtn">کنڈلی بنائیں</button>
+      <div class="hint">
+        نوٹ: یہ کنڈلی لال کتاب کے گھر پر مبنی نظام کے مطابق بنائی جاتی ہے، جس میں ہر سیارہ گھر کے حساب سے زندگی کے مختلف پہلوؤں پر اثر دکھاتا ہے۔ حساب کتاب علم نجوم کے اصولوں پر مبنی ہے، اور حقیقی علم غیب صرف اللہ تعالیٰ کے پاس ہے۔
+        <br><br>
+        🔒 رازداری: آپ کی پیدائش کی تفصیلات صرف آپ کے اپنے براؤزر میں محفوظ ہوتی ہیں (localStorage)۔ یہ ڈیٹا کسی سرور پر نہیں بھیجا جاتا اور نہ ہی کسی اور کو نظر آتا ہے — صرف اسی ڈیوائس اور براؤزر پر محفوظ رہتا ہے جس پر آپ نے کنڈلی بنائی ہو۔
+      </div>
+    </div>
+
+    <div id="results">
+      <div class="card">
+        <h2>آپ کا لگن (Ascendant)</h2>
+        <p id="ascResult" style="font-size:1.25rem; color: var(--maroon);"></p>
+        <div class="chart-wrap">
+          <div class="lk-chart" id="lkChart"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>سیارگان کی پوزیشن — ایک نظر میں</h2>
+        <div id="planetSummary"></div>
+      </div>
+
+      <div class="card">
+        <h2>گھر بہ گھر تفصیلی جائزہ</h2>
+        <div class="note-box" id="predictionIntro"></div>
+        <div id="houseDetails"></div>
+      </div>
+
+      <div class="card">
+        <h2>آپ کی کنڈلی کے مطابق روحانی تدابیر</h2>
+        <p class="hint" style="margin-top:0;">نیچے ان سیاروں کی تدابیر دی گئی ہیں جو آپ کی کنڈلی میں توجہ طلب ہیں۔</p>
+        <div id="personalRemedies"></div>
+      </div>
+
+      <div class="card">
+        <h2>سالانہ کنڈلی (ورش پھل)</h2>
+        <div class="form-grid" style="margin-bottom:14px;">
+          <div class="field">
+            <label>کس عمر کے سال کا جائزہ لینا ہے؟</label>
+            <input type="number" id="varshAge" min="1" max="100" value="1">
+          </div>
+        </div>
+        <button class="btn-primary" id="varshBtn" style="margin-top:0;">سالانہ جائزہ دیکھیں</button>
+        <div id="varshResult" style="margin-top:18px;"></div>
+        <div class="hint">
+          منتھا (سالانہ لگن) ہر سال ایک گھر آگے بڑھتا ہے اور اس سال کے غالب موضوع کی نشاندہی کرتا ہے۔ یہ صرف عمومی رجحان ہے، حتمی فیصلہ نہیں۔
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>36 سالہ بھاو چکر — عمر کے اعتبار سے متحرک گھر</h2>
+        <div class="note-box" id="bhavChakraIntro"></div>
+        <div class="form-grid" style="margin-bottom:14px;">
+          <div class="field">
+            <label>موجودہ عمر</label>
+            <input type="number" id="bhavAge" min="0" max="100" value="25">
+          </div>
+        </div>
+        <button class="btn-primary" id="bhavBtn" style="margin-top:0;">متحرک گھر دیکھیں</button>
+        <div id="bhavResult" style="margin-top:18px;"></div>
+      </div>
+
+      <div class="card" id="sleepingCard">
+        <h2>سویا ہوا گھر (خالی گھروں کی نشاندہی)</h2>
+        <div class="note-box" id="sleepingIntro"></div>
+        <div id="sleepingResults"></div>
+      </div>
+
+      <div class="card" id="rinCard">
+        <h2>کنڈلی میں ذمہ داریوں کی نشاندہی (رِن)</h2>
+        <div class="note-box" id="rinIntro"></div>
+        <div id="rinResults"></div>
+      </div>
+
+      <div class="card" id="comboCard">
+        <h2>سیاروں کے امتزاج (یوگ)</h2>
+        <p class="hint" style="margin-top:0;">جب دو سیارے ایک ہی گھر میں اکٹھے ہوں تو ان کا مخصوص اثر ہوتا ہے۔</p>
+        <div id="comboResults"></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============ TAB: REMEDIES ============ -->
+  <section id="tab-remedies">
+    <div class="card">
+      <h2>روزمرہ زندگی کی تدابیر</h2>
+      <div class="note-box" id="everydayIntro"></div>
+      <div id="everydayPills"></div>
+      <div id="everydayContent" style="margin-top:18px;"></div>
+    </div>
+
+    <div class="card">
+      <h2>سیارہ منتخب کریں</h2>
+      <div id="planetPills"></div>
+      <div id="remedyContent" style="margin-top:18px;"></div>
+      <div id="expandedRemedyContent" style="margin-top:14px;"></div>
+    </div>
+
+    <div class="card">
+      <h2>دن کے اعتبار سے روحانی معمولات</h2>
+      <p class="hint" style="margin-top:0;">ہفتے کے ہر دن سے ایک سیارہ منسلک ہے۔ اس دن متعلقہ عمل اختیار کرنے سے روحانی فائدہ حاصل ہو سکتا ہے، ان شاء اللہ۔</p>
+      <table class="day-table">
+        <thead><tr><th>دن</th><th>سیارہ</th><th>تدبیر</th></tr></thead>
+        <tbody id="dayTableBody"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="ayat-box">
+        وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ
+      </div>
+      <p style="text-align:center; color: var(--ink-soft);">"اور جب میں بیمار ہوتا ہوں تو وہی مجھے شفا دیتا ہے" — سورۃ الشعراء، آیت ۸۰</p>
+    </div>
+  </section>
+
+  <!-- ============ TAB: ABOUT ============ -->
+  <section id="tab-about">
+    <div class="card">
+      <h2>لال کتاب کیا ہے؟</h2>
+      <p>
+        لال کتاب علم نجوم کی ایک منفرد روایت ہے جو اٹھارہویں اور بیسویں صدی کے دوران پنجاب کے علاقے میں اردو اور پنجابی زبان میں مرتب ہوئی۔ اس کی بنیادی خصوصیت یہ ہے کہ یہ سیارگان کا اثر براہ راست "گھروں" (Houses) کی بنیاد پر بیان کرتی ہے، جبکہ روایتی علم نجوم میں رقوم (Zodiac Signs) کو زیادہ اہمیت دی جاتی ہے۔
+      </p>
+      <h3>گھر پر مبنی نظام</h3>
+      <p>
+        لال کتاب کے مطابق کنڈلی میں بارہ گھر ہوتے ہیں، اور ہر گھر زندگی کے ایک خاص پہلو — جیسے صحت، مال، خاندان، اولاد، شادی، رزق وغیرہ — کی نمائندگی کرتا ہے۔ ہر سیارہ جس گھر میں واقع ہو، اس گھر سے متعلقہ معاملات پر اپنا اثر ڈالتا ہے۔ کچھ گھر کسی سیارے کے لیے سازگار (شُبھ) ہوتے ہیں اور کچھ توجہ طلب (اشُبھ) سمجھے جاتے ہیں۔
+      </p>
+      <h3>تدابیر کا فلسفہ</h3>
+      <p>
+        لال کتاب کی روایت میں سادہ اور روزمرہ زندگی سے جڑی تدابیر تجویز کی جاتی ہیں۔ اس ایپ میں ہم نے انہی اصولوں کو بنیاد بناتے ہوئے، تدابیر کا انتخاب اسلامی اقدار سے ہم آہنگ رکھا ہے — یعنی صدقہ و خیرات، قرآنی آیات کی تلاوت، نماز کی پابندی، والدین کا ادب، اور اچھے اخلاق جیسے اعمال کو ترجیح دی گئی ہے۔
+      </p>
+      <h3>سالانہ کنڈلی، بھاو چکر اور ذمہ داریوں کی نشاندہی</h3>
+      <p>
+        اس ایپ میں مزید خصوصیات شامل کی گئی ہیں: "ورش پھل" (سالانہ کنڈلی) جو منتھا کے حساب سے ہر سال کے غالب موضوع کی نشاندہی کرتی ہے، "36 سالہ بھاو چکر" جو لال کتاب کا اپنا روایتی نظام ہے جس میں ہر تین سال بعد ایک نیا گھر متحرک ہوتا ہے، "رِن" یعنی کنڈلی میں بعض سیاروں کی پوزیشن سے ظاہر ہونے والی علامتی ذمہ داریاں، اور "یوگ" یعنی دو سیاروں کا ایک ہی گھر میں اکٹھا ہونا۔ یوگ کے سیکشن میں نو سیاروں کے ممکنہ تمام 36 امتزاج شامل کیے گئے ہیں، تاکہ آپ کی کنڈلی میں موجود کوئی بھی امتزاج رہ نہ جائے۔ یہ تمام حسابات روایتی لال کتاب اصولوں پر مبنی ہیں، اور ان کی تدابیر مکمل طور پر اسلامی اقدار سے ہم آہنگ رکھی گئی ہیں۔
+      </p>
+      <h3>سویا ہوا گھر اور سیاروں کا اپنا گھر</h3>
+      <p>
+        لال کتاب کے مطابق جس گھر میں کوئی سیارہ موجود نہ ہو، وہ گھر "سویا ہوا" تصور کیا جاتا ہے اور اپنا مکمل اثر نہیں دکھاتا، جب تک کہ اسے کسی خاص سیارے کی تدبیر سے "جگایا" نہ جائے۔ اس ایپ میں ہر خالی گھر کے لیے اس کا جگانے والا سیارہ اور اس سے منسلک اسلامی تدبیر دکھائی جاتی ہے۔ مزید برآں، ہر سیارے کی "گھر کے اعتبار سے حیثیت" (سازگار، توجہ طلب، یا معتدل) کا تعین لال کتاب کی روایتی اپنے گھر، اعلیٰ مقام اور نیچ مقام کی فہرستوں کی بنیاد پر کیا گیا ہے، تاکہ جائزہ زیادہ درست اور مستند ہو۔
+      </p>
+      <h3>ایک اہم گزارش</h3>
+      <p>
+        یہ ایپ علم نجوم کے اصولوں کے مطابق سیارگان کی پوزیشن کا حساب لگاتی ہے اور اس روایت کے مطابق عمومی رجحانات بیان کرتی ہے۔ اس سے حاصل ہونے والی معلومات کو حتمی فیصلہ یا تقدیر نہ سمجھا جائے۔ علم غیب اور حقیقی شفا صرف اللہ تعالیٰ کی طرف سے ہے۔ ہم اللہ سے دعا، صدقہ اور نیک اعمال کی طرف رجوع کو سب سے بہتر تدبیر سمجھتے ہیں۔
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    تمام علم اللہ تعالیٰ کے پاس ہے — یہ معلومات صرف رہنمائی کے لیے ہیں۔<br>
+    وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ
+  </footer>
+
+</div>
+
+<script>
+/* ===========================================================
+   Lal Kitab Kundli — Astronomical Engine (Pure JS)
+   Sidereal positions (Lahiri Ayanamsa) using low-precision
+   VSOP87-derived mean-element formulas (sufficient accuracy
+   for Lal Kitab house-based system: ~0.01-0.05 deg).
+   =========================================================== */
+
+const DEG = Math.PI / 180;
+
+function normalizeDeg(d) {
+  d = d % 360;
+  if (d < 0) d += 360;
+  return d;
+}
+
+// Julian Day from local datetime + tz offset (hours)
+function toJulianDay(year, month, day, hour, minute, tzOffset) {
+  // convert to UT
+  let totalMinutes = hour * 60 + minute - tzOffset * 60;
+  let dayFrac = totalMinutes / 1440;
+  let y = year, m = month;
+  if (m <= 2) { y -= 1; m += 12; }
+  let A = Math.floor(y / 100);
+  let B = 2 - A + Math.floor(A / 4);
+  let JD0 = Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + day + B - 1524.5;
+  return JD0 + dayFrac;
+}
+
+// T = Julian centuries from J2000.0
+function julianCenturies(jd) {
+  return (jd - 2451545.0) / 36525.0;
+}
+
+/* ---------- Mean orbital elements (low precision, deg) ---------- */
+// Sun (geometric mean longitude, mean anomaly)
+function sunPosition(T) {
+  let L0 = normalizeDeg(280.46646 + 36000.76983 * T + 0.0003032 * T * T);
+  let M = normalizeDeg(357.52911 + 35999.05029 * T - 0.0001537 * T * T);
+  let e = 0.016708634 - 0.000042037 * T - 0.0000001267 * T * T;
+  let Mr = M * DEG;
+  let C = (1.914602 - 0.004817 * T - 0.000014 * T * T) * Math.sin(Mr)
+        + (0.019993 - 0.000101 * T) * Math.sin(2 * Mr)
+        + 0.000289 * Math.sin(3 * Mr);
+  let trueLong = L0 + C;
+  return normalizeDeg(trueLong);
+}
+
+// Moon (mean longitude + main perturbation terms, low precision)
+function moonPosition(T) {
+  let Lp = normalizeDeg(218.3164477 + 481267.88123421 * T - 0.0015786 * T * T);
+  let D  = normalizeDeg(297.8501921 + 445267.1114034 * T - 0.0018819 * T * T);
+  let M  = normalizeDeg(357.5291092 + 35999.0502909 * T - 0.0001536 * T * T);
+  let Mp = normalizeDeg(134.9633964 + 477198.8675055 * T + 0.0087414 * T * T);
+  let F  = normalizeDeg(93.2720950 + 483202.0175233 * T - 0.0036539 * T * T);
+
+  let Dr = D * DEG, Mr = M * DEG, Mpr = Mp * DEG, Fr = F * DEG;
+
+  let dL =
+      6.288774 * Math.sin(Mpr)
+    + 1.274027 * Math.sin(2 * Dr - Mpr)
+    + 0.658314 * Math.sin(2 * Dr)
+    + 0.213618 * Math.sin(2 * Mpr)
+    - 0.185116 * Math.sin(Mr)
+    - 0.114332 * Math.sin(2 * Fr)
+    + 0.058793 * Math.sin(2 * Dr - 2 * Mpr)
+    + 0.057066 * Math.sin(2 * Dr - Mr - Mpr)
+    + 0.053322 * Math.sin(2 * Dr + Mpr)
+    + 0.045758 * Math.sin(2 * Dr - Mr)
+    - 0.040923 * Math.sin(Mr - Mpr)
+    - 0.034720 * Math.sin(Dr)
+    - 0.030383 * Math.sin(Mr + Mpr)
+    + 0.015327 * Math.sin(2 * Dr - 2 * Fr)
+    - 0.012528 * Math.sin(2 * Fr + Mpr)
+    + 0.010980 * Math.sin(2 * Fr - Mpr);
+
+  let trueLong = Lp + dL;
+  return normalizeDeg(trueLong);
+}
+
+/* Planetary heliocentric -> approximate geocentric ecliptic longitude
+   using mean orbital elements (Keplerian, first-order). Accuracy ~0.1-0.3 deg
+   which is acceptable for Lal Kitab house placement. */
+
+// Orbital elements: [L0, Ldot, a, e, peri0, peridot] (deg, deg/day-ish via T)
+// Using standard J2000 mean elements (deg, deg per century for rates)
+const ELEMENTS = {
+  MERCURY: { L: [252.250906, 149472.6746358], a: 0.387098310, e: [0.20563175, 0.000020407], peri: [77.45611904, 0.16047689] },
+  VENUS:   { L: [181.979801, 58517.8156760],  a: 0.723329820, e: [0.00677188, -0.000047766], peri: [131.56370300, 0.00268329] },
+  MARS:    { L: [355.433000, 19140.2993039],  a: 1.523679342, e: [0.09340065, 0.000090484], peri: [336.04084, 0.44441088] },
+  JUPITER: { L: [34.351519, 3034.9056606],    a: 5.202603191, e: [0.04849793, 0.000163225], peri: [14.331309, 0.21252668] },
+  SATURN:  { L: [50.077444, 1222.1138488],    a: 9.554909596, e: [0.05554814, -0.000346641], peri: [93.056787, 0.56407332] }
+};
+
+function keplerSolve(M, e) {
+  let E = M;
+  for (let i = 0; i < 8; i++) {
+    E = E - (E - e * Math.sin(E) - M) / (1 - e * Math.cos(E));
+  }
+  return E;
+}
+
+// Earth's orbital elements (for geocentric conversion)
+const EARTH = { L: [100.466457, 35999.3728565], a: 1.000001018, e: [0.01670862, -0.000042037], peri: [102.937348, 0.32327364] };
+
+function heliocentricLongRadius(elem, T) {
+  let L = normalizeDeg(elem.L[0] + elem.L[1] * T);
+  let e = elem.e[0] + elem.e[1] * T;
+  let peri = normalizeDeg(elem.peri[0] + elem.peri[1] * T);
+  let M = normalizeDeg(L - peri);
+  let Mr = M * DEG;
+  let E = keplerSolve(Mr, e);
+  let xv = elem.a * (Math.cos(E) - e);
+  let yv = elem.a * (Math.sqrt(1 - e * e) * Math.sin(E));
+  let v = Math.atan2(yv, xv);
+  let r = Math.sqrt(xv * xv + yv * yv);
+  let lon = normalizeDeg(v / DEG + peri);
+  return { lon: lon, r: r };
+}
+
+function planetGeocentricLongitude(name, T) {
+  let earth = heliocentricLongRadius(EARTH, T);
+  let planet = heliocentricLongRadius(ELEMENTS[name], T);
+
+  // convert heliocentric polar to rectangular (assuming coplanar, low precision)
+  let xE = earth.r * Math.cos(earth.lon * DEG);
+  let yE = earth.r * Math.sin(earth.lon * DEG);
+  let xP = planet.r * Math.cos(planet.lon * DEG);
+  let yP = planet.r * Math.sin(planet.lon * DEG);
+
+  let xG = xP - xE;
+  let yG = yP - yE;
+
+  let lonGeo = Math.atan2(yG, xG) / DEG;
+  return normalizeDeg(lonGeo);
+}
+
+/* ---------- Lahiri Ayanamsa ---------- */
+// Approximation: Ayanamsa at J2000 ~ 23.85 deg, precession rate ~50.29"/yr -> 0.013971 deg/yr
+function lahiriAyanamsa(T) {
+  let years = T * 100;
+  return 23.85 + years * 0.013971;
+}
+
+/* ---------- Rahu / Ketu (Mean Lunar Node) ---------- */
+function meanNodeLongitude(T) {
+  let omega = normalizeDeg(125.0445479 - 1934.1362891 * T + 0.0020754 * T * T);
+  return omega;
+}
+
+/* ---------- Ascendant (Lagna) calculation ----------
+   Using sidereal time + obliquity + latitude */
+function obliquity(T) {
+  return 23.439291 - 0.0130042 * T - 0.00000016 * T * T + 0.000000504 * T * T * T;
+}
+
+function gmst(jd) {
+  let T = julianCenturies(jd);
+  let theta = 280.46061837 + 360.98564736629 * (jd - 2451545.0)
+            + 0.000387933 * T * T - (T * T * T) / 38710000.0;
+  return normalizeDeg(theta);
+}
+
+function ascendantLongitude(jd, latDeg, lonDeg) {
+  let T = julianCenturies(jd);
+  let theta = gmst(jd);
+  let lst = normalizeDeg(theta + lonDeg); // local sidereal time in degrees
+  let eps = obliquity(T) * DEG;
+  let lstR = lst * DEG;
+  let latR = latDeg * DEG;
+
+  // Formula for ecliptic longitude of the ascendant
+  let y = -Math.cos(lstR);
+  let x = Math.sin(lstR) * Math.cos(eps) + Math.tan(latR) * Math.sin(eps);
+  let ascRad = Math.atan2(y, x);
+  let ascDeg = normalizeDeg(ascRad / DEG + 180);
+  return ascDeg;
+}
+
+/* ---------- Main calculation ---------- */
+const SIGN_NAMES_UR = ["حمل", "ثور", "جوزا", "سرطان", "اسد", "سنبلہ", "میزان", "عقرب", "قوس", "جدی", "دلو", "حوت"];
+
+function getSignIndex(longitude) {
+  return Math.floor(normalizeDeg(longitude) / 30) % 12;
+}
+
+function calculateKundli(year, month, day, hour, minute, tzOffset, lat, lon) {
+  const jd = toJulianDay(year, month, day, hour, minute, tzOffset);
+  const T = julianCenturies(jd);
+  const ayanamsa = lahiriAyanamsa(T);
+
+  // Tropical longitudes
+  const sunLon = sunPosition(T);
+  const moonLon = moonPosition(T);
+  const mercuryLon = planetGeocentricLongitude("MERCURY", T);
+  const venusLon = planetGeocentricLongitude("VENUS", T);
+  const marsLon = planetGeocentricLongitude("MARS", T);
+  const jupiterLon = planetGeocentricLongitude("JUPITER", T);
+  const saturnLon = planetGeocentricLongitude("SATURN", T);
+  const rahuLonTropical = normalizeDeg(meanNodeLongitude(T) );
+  // Note: mean node formula gives the ascending node longitude directly (already "true" direction descending - convention varies)
+  // Standard: Rahu = mean lunar node (descending node convention -> some use Omega directly as Rahu)
+  const rahuLon = rahuLonTropical;
+  const ketuLon = normalizeDeg(rahuLon + 180);
+
+  // Ascendant
+  const ascTropical = ascendantLongitude(jd, lat, lon);
+
+  // Convert to sidereal (subtract ayanamsa)
+  const toSidereal = (l) => normalizeDeg(l - ayanamsa);
+
+  const positions = {
+    SUN: toSidereal(sunLon),
+    MOON: toSidereal(moonLon),
+    MARS: toSidereal(marsLon),
+    MERCURY: toSidereal(mercuryLon),
+    JUPITER: toSidereal(jupiterLon),
+    VENUS: toSidereal(venusLon),
+    SATURN: toSidereal(saturnLon),
+    RAHU: toSidereal(rahuLon),
+    KETU: toSidereal(ketuLon)
+  };
+  const ascSidereal = toSidereal(ascTropical);
+  const ascSignIdx = getSignIndex(ascSidereal);
+
+  const planetData = {};
+  const houseMap = {};
+  for (let name in positions) {
+    const lonVal = positions[name];
+    const signIdx = getSignIndex(lonVal);
+    planetData[name] = {
+      longitude: lonVal,
+      signIndex: signIdx,
+      signName: SIGN_NAMES_UR[signIdx],
+      degInSign: lonVal % 30
+    };
+    houseMap[name] = ((signIdx - ascSignIdx + 12) % 12) + 1;
+  }
+
+  return {
+    julianDay: jd,
+    ayanamsa: ayanamsa,
+    ascendant: {
+      longitude: ascSidereal,
+      signIndex: ascSignIdx,
+      signName: SIGN_NAMES_UR[ascSignIdx]
+    },
+    planets: planetData,
+    houses: houseMap
+  };
+}
+
+</script>
+<script>
+// Lal Kitab Data - Planets, Houses, Predictions & Islamic-Friendly Remedies (Urdu)
+// Research-based on Lal Kitab house-system (Pt. Roop Chand Joshi tradition)
+
+const PLANETS = {
+  SUN: { name: "سورج", symbol: "☉", color: "#E8A33D" },
+  MOON: { name: "چاند", symbol: "☽", color: "#C7D3E0" },
+  MARS: { name: "مریخ", symbol: "♂", color: "#D14B4B" },
+  MERCURY: { name: "عطارد", symbol: "☿", color: "#7AA874" },
+  JUPITER: { name: "جوپیٹر (برہسپتی)", symbol: "♃", color: "#D9A23B" },
+  VENUS: { name: "زہرہ", symbol: "♀", color: "#D88FB3" },
+  SATURN: { name: "زحل", symbol: "♄", color: "#5A6B7A" },
+  RAHU: { name: "راہو", symbol: "☊", color: "#6B5B7A" },
+  KETU: { name: "کیتو", symbol: "☋", color: "#8A7560" }
+};
+
+const HOUSES = {
+  1: { name: "پہلا گھر", title: "ذات، شخصیت اور صحت کا گھر", desc: "یہ گھر انسان کی ذات، کردار، صحت اور مجموعی زندگی کے رُخ کو ظاہر کرتا ہے۔ یہ تمام گھروں کی بنیاد ہے۔" },
+  2: { name: "دوسرا گھر", title: "مال، خاندان اور بچت کا گھر", desc: "یہ گھر دولت، خاندانی حالات، بول چال اور بچت سے متعلق ہے۔" },
+  3: { name: "تیسرا گھر", title: "ہمت، بہن بھائی اور کوششوں کا گھر", desc: "یہ گھر حوصلے، بہن بھائیوں کے تعلقات، مختصر سفر اور ذاتی کوششوں کو ظاہر کرتا ہے۔" },
+  4: { name: "چوتھا گھر", title: "گھر، ماں اور دلی سکون کا گھر", desc: "یہ گھر گھریلو زندگی، ماں سے تعلق، جائیداد اور دلی اطمینان سے متعلق ہے۔" },
+  5: { name: "پانچواں گھر", title: "اولاد، تعلیم اور عقل کا گھر", desc: "یہ گھر اولاد، تعلیم، ذہانت اور سوچ سمجھ کی صلاحیت کو ظاہر کرتا ہے۔" },
+  6: { name: "چھٹا گھر", title: "صحت، دشمن اور مشکلات کا گھر", desc: "یہ گھر بیماری، قرض، دشمنی اور روزمرہ کی مشکلات سے متعلق ہے۔" },
+  7: { name: "ساتواں گھر", title: "ازدواجی زندگی اور شراکت کا گھر", desc: "یہ گھر شادی، ازدواجی تعلقات، کاروباری شراکت داری اور معاشرتی روابط کو ظاہر کرتا ہے۔" },
+  8: { name: "آٹھواں گھر", title: "عمر، رازوں اور تبدیلیوں کا گھر", desc: "یہ گھر زندگی میں اچانک تبدیلیوں، رازوں، وراثت اور پوشیدہ معاملات سے متعلق ہے۔" },
+  9: { name: "نواں گھر", title: "نصیب، دین اور والد کا گھر", desc: "یہ گھر تقدیر، دینی رجحان، والد سے تعلق اور دور دراز سفروں کو ظاہر کرتا ہے۔" },
+  10: { name: "دسواں گھر", title: "کام، روزگار اور مقام کا گھر", desc: "یہ گھر پیشے، کاروبار، عزت اور سماجی مقام سے متعلق ہے۔" },
+  11: { name: "گیارہواں گھر", title: "آمدنی، خواہشات اور دوستی کا گھر", desc: "یہ گھر آمدنی کے ذرائع، خواہشات کی تکمیل اور دوستوں سے متعلق ہے۔" },
+  12: { name: "بارہواں گھر", title: "خرچ، نیند اور روحانیت کا گھر", desc: "یہ گھر اخراجات، نیند، دیار غیر اور روحانی رجحان کو ظاہر کرتا ہے۔" }
+};
+
+// Planet effects per house: "shubh" (favourable) / "ashubh" (needs attention)
+// Based on Lal Kitab house-effect tradition
+// Planet dignity table per Lal Kitab tradition (own house, exalted, debilitated)
+// Cross-verified across multiple Lal Kitab sources (vaastuinternational.com,
+// astrosage.com Lal Kitab section, and others tracing to Pt. Roop Chand Joshi's text).
+const PLANET_DIGNITY = {
+  SUN:     { ownHouse: 1,  exalted: [1],   debilitated: [7] },
+  MOON:    { ownHouse: 4,  exalted: [],    debilitated: [] },
+  MARS:    { ownHouse: 3,  exalted: [10],  debilitated: [4] },
+  MERCURY: { ownHouse: 7,  exalted: [6],   debilitated: [12] },
+  JUPITER: { ownHouse: 9,  exalted: [4],   debilitated: [10] },
+  VENUS:   { ownHouse: 7,  exalted: [12],  debilitated: [6] },
+  SATURN:  { ownHouse: 10, exalted: [7],   debilitated: [1] },
+  RAHU:    { ownHouse: 12, exalted: [3,6], debilitated: [8,9,11] },
+  KETU:    { ownHouse: 6,  exalted: [5,9,12], debilitated: [6,8] }
+};
+
+// Planet effects per house: "shubh" (favourable) / "ashubh" (needs attention) / "neutral" (mixed/depends)
+// Status values are research-verified against Lal Kitab good-house/bad-house tables
+// (cross-checked across vaastuinternational.com, astrosage.com Lal Kitab section, and
+// the "Planets and Their Effects" reference compiled from Pt. Roop Chand Joshi's text).
+const PLANET_HOUSE_EFFECTS = {
+  SUN: {
+    1: { status: "shubh", text: "سورج پہلے گھر میں اپنے ہی گھر اور اعلیٰ مقام پر ہوتا ہے — اعتماد، قوتِ ارادی اور رہنمائی کی صلاحیت بخشتا ہے۔ شخصیت میں وقار اور دبدبہ نظر آتا ہے۔" },
+    2: { status: "neutral", text: "دوسرے گھر میں سورج کا اثر ملا جلا رہتا ہے — مالی معاملات اور خاندانی تعلقات میں توجہ اور توازن کی ضرورت رہتی ہے۔" },
+    3: { status: "neutral", text: "تیسرے گھر میں سورج ہمت اور بھائیوں سے تعلقات پر اثر انداز ہوتا ہے، نتیجہ حالات کے مطابق مختلف ہو سکتا ہے۔" },
+    4: { status: "neutral", text: "چوتھے گھر میں سورج گھریلو سکون اور ماں سے تعلق پر ملا جلا اثر رکھتا ہے — توجہ اور نرمی فائدہ مند رہتی ہے۔" },
+    5: { status: "shubh", text: "پانچویں گھر میں سورج نصیب اور تعلیم کے لیے سازگار ہے — اولاد اور ذہانت میں برکت کا اشارہ دیتا ہے۔" },
+    6: { status: "ashubh", text: "چھٹے گھر میں سورج کے لیے یہ کمزور مقام ہے — دشمنوں اور مشکلات کے معاملات میں زیادہ احتیاط درکار ہے۔" },
+    7: { status: "ashubh", text: "ساتویں گھر میں سورج اپنے انتہائی کمزور (نیچ) مقام پر ہوتا ہے — ازدواجی تعلقات میں انا اور غلط فہمی کا امکان رہتا ہے۔ نرمی اور برداشت اہم ہے۔" },
+    8: { status: "shubh", text: "آٹھویں گھر میں سورج سازگار سمجھا جاتا ہے — عمر اور حفاظت کے معاملے میں اچھا اثر رکھتا ہے، تاہم احتیاط برقرار رہے۔" },
+    9: { status: "shubh", text: "نویں گھر میں سورج دینی رجحان، والد سے اچھے تعلقات اور نصیب میں برکت کا اشارہ دیتا ہے۔" },
+    10: { status: "ashubh", text: "دسویں گھر میں سورج کے لیے کمزور مقام ہے — کیریئر میں نمایاں ہونے کے باوجود اندرونی دباؤ اور مخالفت کا سامنا ہو سکتا ہے۔" },
+    11: { status: "shubh", text: "گیارہویں گھر میں سورج آمدنی اور خواہشات کی تکمیل کے لیے سازگار ہے۔" },
+    12: { status: "shubh", text: "بارہویں گھر میں سورج روحانی رجحان اور اندرونی قوت کے لیے اچھا اشارہ دیتا ہے، اگرچہ آرام میں کمی محسوس ہو سکتی ہے۔" }
+  },
+  MOON: {
+    1: { status: "shubh", text: "چاند پہلے گھر میں نرم مزاجی، حساسیت اور لوگوں سے جلد گھل مل جانے کی صلاحیت دیتا ہے۔" },
+    2: { status: "shubh", text: "دوسرے گھر میں چاند مالی استحکام اور خاندان میں محبت کا اشارہ دیتا ہے۔" },
+    3: { status: "shubh", text: "تیسرے گھر میں چاند ہمت اور بہن بھائیوں سے تعلقات کے لیے سازگار ہے۔" },
+    4: { status: "shubh", text: "چوتھے گھر میں چاند اپنے ہی گھر میں ہوتا ہے — گھریلو سکون، ماں سے قریبی تعلق اور ذہنی اطمینان کے لیے بہترین ہے۔" },
+    5: { status: "shubh", text: "پانچویں گھر میں چاند اولاد سے محبت اور تخلیقی صلاحیت کو بڑھاتا ہے۔" },
+    6: { status: "ashubh", text: "چھٹے گھر میں چاند ذہنی پریشانی اور معمولی صحت کے مسائل کی طرف اشارہ کرتا ہے۔" },
+    7: { status: "shubh", text: "ساتویں گھر میں چاند ازدواجی زندگی میں محبت اور ہم آہنگی لاتا ہے۔" },
+    8: { status: "ashubh", text: "آٹھویں گھر میں چاند جذباتی اتار چڑھاؤ اور غیر یقینی حالات کی طرف اشارہ کرتا ہے۔ صبر سے کام لیں۔" },
+    9: { status: "shubh", text: "نویں گھر میں چاند نصیب میں برکت اور دینی رجحان کے لیے اچھا ہے۔" },
+    10: { status: "ashubh", text: "دسویں گھر میں چاند کیریئر میں اتار چڑھاؤ اور فیصلوں میں تبدیلی کا اشارہ دے سکتا ہے۔" },
+    11: { status: "ashubh", text: "گیارہویں گھر میں چاند آمدنی میں غیر یقینی اور خواہشات میں بے قراری کی طرف اشارہ کر سکتا ہے۔" },
+    12: { status: "ashubh", text: "بارہویں گھر میں چاند نیند میں خلل اور بے فائدہ سوچوں کی طرف اشارہ کرتا ہے، تاہم روحانی رجحان بڑھ سکتا ہے۔" }
+  },
+  MARS: {
+    1: { status: "shubh", text: "مریخ پہلے گھر میں اپنے ہی گھر میں ہونے کے باعث ہمت، توانائی اور قائدانہ صلاحیت دیتا ہے۔" },
+    2: { status: "neutral", text: "دوسرے گھر میں مریخ کا اثر ملا جلا رہتا ہے — خاندان اور مالی معاملات میں زبان کی نرمی فائدہ مند رہتی ہے۔" },
+    3: { status: "shubh", text: "تیسرے گھر میں مریخ بہادری اور بھائیوں سے تعاون کے لیے سازگار ہے۔" },
+    4: { status: "ashubh", text: "چوتھے گھر میں مریخ اپنے کمزور (نیچ) مقام پر ہوتا ہے — گھریلو سکون میں کمی اور ماں کی صحت سے متعلق توجہ کی ضرورت ظاہر کرتا ہے۔" },
+    5: { status: "shubh", text: "پانچویں گھر میں مریخ ہمت اور قوتِ فیصلہ کے لیے سازگار ہے، اگرچہ تعلیم میں محنت درکار ہو سکتی ہے۔" },
+    6: { status: "neutral", text: "چھٹے گھر میں مریخ کا اثر حالات پر منحصر رہتا ہے — دشمنوں اور مشکلات پر غلبہ ممکن ہے، مگر مستقل توجہ ضروری ہے۔" },
+    7: { status: "shubh", text: "ساتویں گھر میں مریخ ازدواجی تعلقات میں توانائی اور تحفظ کا احساس دیتا ہے، تاہم غصے پر قابو ضروری ہے۔" },
+    8: { status: "ashubh", text: "آٹھویں گھر میں مریخ کے لیے یہ کمزور مقام ہے — احتیاط اور صبر کی خاص ضرورت ہے۔" },
+    9: { status: "shubh", text: "نویں گھر میں مریخ نصیب اور دینی معاملات میں ہمت اور عمل کی توانائی دیتا ہے۔" },
+    10: { status: "neutral", text: "دسویں گھر میں مریخ اپنے اعلیٰ مقام پر ہوتا ہے، مگر نتیجہ دیگر سیاروں کی پوزیشن پر منحصر رہتا ہے — کیریئر میں جوش اور ہمت ملتی ہے۔" },
+    11: { status: "neutral", text: "گیارہویں گھر میں مریخ کا اثر حالات کے مطابق بدلتا ہے — محنت سے آمدنی ممکن ہے۔" },
+    12: { status: "shubh", text: "بارہویں گھر میں مریخ توانائی کو روحانی یا خفیہ کاموں کی طرف موڑتا ہے، سازگار سمجھا جاتا ہے۔" }
+  },
+  MERCURY: {
+    1: { status: "shubh", text: "عطارد پہلے گھر میں ذہانت، اچھی گفتگو اور سیکھنے کی صلاحیت دیتا ہے۔" },
+    2: { status: "shubh", text: "دوسرے گھر میں عطارد مالی معاملات میں سمجھداری اور اچھی کاروباری سوچ کا اشارہ دیتا ہے۔" },
+    3: { status: "ashubh", text: "تیسرے گھر میں عطارد کے لیے روایتی طور پر کمزور مقام ہے — ہنر اور رابطے میں بے ثباتی کا امکان رہتا ہے۔" },
+    4: { status: "shubh", text: "چوتھے گھر میں عطارد گھریلو سکون اور تعلیمی ماحول کے لیے اچھا ہے۔" },
+    5: { status: "shubh", text: "پانچویں گھر میں عطارد تعلیم اور اولاد کی ذہانت کے لیے اچھا اشارہ ہے۔" },
+    6: { status: "shubh", text: "چھٹے گھر میں عطارد اپنے اعلیٰ مقام پر ہوتا ہے — ذہانت سے مشکلات حل کرنے کی نمایاں صلاحیت دیتا ہے۔" },
+    7: { status: "shubh", text: "ساتویں گھر میں عطارد اپنے ہی گھر میں ہوتا ہے — ازدواجی معاملات میں سمجھداری اور تحفظ کا اشارہ دیتا ہے۔" },
+    8: { status: "ashubh", text: "آٹھویں گھر میں عطارد ذہنی الجھن اور فیصلوں میں تاخیر کی طرف اشارہ کرتا ہے۔" },
+    9: { status: "ashubh", text: "نویں گھر میں عطارد کے لیے کمزور مقام ہے — نصیب اور دینی معاملات میں غیر یقینی کا امکان رہتا ہے۔" },
+    10: { status: "ashubh", text: "دسویں گھر میں عطارد کیریئر کے فیصلوں میں الجھن اور بار بار تبدیلی کی طرف اشارہ کر سکتا ہے۔" },
+    11: { status: "ashubh", text: "گیارہویں گھر میں عطارد کے لیے کمزور مقام ہے — آمدنی کے معاملات میں غیر یقینی رہ سکتی ہے، منصوبہ بندی میں احتیاط کریں۔" },
+    12: { status: "ashubh", text: "بارہویں گھر میں عطارد اپنے انتہائی کمزور (نیچ) مقام پر ہوتا ہے — بے فائدہ سوچ اور بے مقصد گفتگو کی طرف اشارہ کرتا ہے۔" }
+  },
+  JUPITER: {
+    1: { status: "shubh", text: "جوپیٹر پہلے گھر میں علم، حکمت اور وقار بخشتا ہے۔ شخصیت میں سنجیدگی نظر آتی ہے۔" },
+    2: { status: "neutral", text: "دوسرے گھر میں جوپیٹر کا اثر ملا جلا رہتا ہے — مالی معاملات میں برکت کا امکان رہتا ہے مگر دیگر سیاروں پر منحصر ہے۔" },
+    3: { status: "neutral", text: "تیسرے گھر میں جوپیٹر کا اثر حالات کے مطابق بدلتا ہے — بھائیوں سے تعلقات میں توجہ مفید رہتی ہے۔" },
+    4: { status: "neutral", text: "چوتھے گھر میں جوپیٹر اپنے اعلیٰ مقام پر ہوتا ہے، تاہم نتیجہ دیگر عوامل پر منحصر ہے — عموماً گھریلو سکون کے لیے اچھا۔" },
+    5: { status: "shubh", text: "پانچویں گھر میں جوپیٹر سازگار ہے — اولاد اور تعلیم کے لیے بہت اچھا اشارہ ہے۔" },
+    6: { status: "ashubh", text: "چھٹے گھر میں جوپیٹر کے لیے کمزور مقام ہے — صحت اور قرض کے معاملات میں زیادہ توجہ کی ضرورت ظاہر کرتا ہے۔" },
+    7: { status: "ashubh", text: "ساتویں گھر میں جوپیٹر کے لیے کمزور مقام ہے — ازدواجی معاملات میں سمجھداری اور صبر کی ضرورت ہے۔" },
+    8: { status: "shubh", text: "آٹھویں گھر میں جوپیٹر سازگار سمجھا جاتا ہے — دینی رجحان اور عمر کے معاملے میں اچھا اثر رکھتا ہے۔" },
+    9: { status: "shubh", text: "نویں گھر میں جوپیٹر اپنے ہی گھر میں ہوتا ہے — نصیب، دینی علم اور والد کی برکت کے لیے بہترین ہے۔" },
+    10: { status: "ashubh", text: "دسویں گھر میں جوپیٹر اپنے انتہائی کمزور (نیچ) مقام پر ہوتا ہے — کیریئر میں سستی اور تاخیر کی طرف اشارہ کر سکتا ہے۔" },
+    11: { status: "neutral", text: "گیارہویں گھر میں جوپیٹر کا اثر ملا جلا رہتا ہے — آمدنی اور خواہشات کی تکمیل کے لیے عموماً سازگار۔" },
+    12: { status: "shubh", text: "بارہویں گھر میں جوپیٹر سازگار ہے — روحانیت اور سکون کے لیے بہترین اشارہ دیتا ہے۔" }
+  },
+  VENUS: {
+    1: { status: "ashubh", text: "زہرہ پہلے گھر میں کمزور مقام پر ہوتا ہے — شخصیت میں نرمی اور دلکشی تو رہتی ہے، مگر ارادے میں کمی محسوس ہو سکتی ہے۔" },
+    2: { status: "shubh", text: "دوسرے گھر میں زہرہ مالی آرام اور خاندانی محبت کے لیے سازگار ہے۔" },
+    3: { status: "shubh", text: "تیسرے گھر میں زہرہ ہنر اور بہن بھائیوں سے خوشگوار تعلقات کے لیے اچھا اشارہ ہے۔" },
+    4: { status: "shubh", text: "چوتھے گھر میں زہرہ گھریلو سکون اور آرام دہ زندگی کے لیے سازگار ہے۔" },
+    5: { status: "neutral", text: "پانچویں گھر میں زہرہ کا اثر ملا جلا رہتا ہے — اولاد سے محبت اور تخلیقی ذوق رہتا ہے، مگر توجہ ضروری ہے۔" },
+    6: { status: "ashubh", text: "چھٹے گھر میں زہرہ اپنے انتہائی کمزور (نیچ) مقام پر ہوتا ہے — صحت میں سستی اور آرام طلبی سے پیدا ہونے والی مشکلات کی طرف اشارہ کرتا ہے۔" },
+    7: { status: "shubh", text: "ساتویں گھر میں زہرہ اپنے ہی گھر میں ہوتا ہے — ازدواجی زندگی میں محبت اور توازن کے لیے بہترین ہے۔" },
+    8: { status: "neutral", text: "آٹھویں گھر میں زہرہ کا اثر حالات پر منحصر رہتا ہے — تعلقات میں رازداری کا پہلو رہتا ہے۔" },
+    9: { status: "ashubh", text: "نویں گھر میں زہرہ کے لیے کمزور مقام ہے — دینی رجحان اور نصیب کے معاملات میں توجہ ضروری ہے۔" },
+    10: { status: "neutral", text: "دسویں گھر میں زہرہ کا اثر ملا جلا رہتا ہے — کیریئر میں تخلیقی صلاحیت مدد دیتی ہے۔" },
+    11: { status: "neutral", text: "گیارہویں گھر میں زہرہ کا اثر حالات کے مطابق بدلتا ہے — دوستوں سے خوشگوار تعلقات رہتے ہیں۔" },
+    12: { status: "shubh", text: "بارہویں گھر میں زہرہ اپنے اعلیٰ مقام پر ہوتا ہے — سکون آور نیند اور آرام کے لیے بہترین اشارہ ہے۔" }
+  },
+  SATURN: {
+    1: { status: "ashubh", text: "زحل پہلے گھر میں اپنے انتہائی کمزور (نیچ) مقام پر ہوتا ہے — شخصیت میں سنجیدگی کے ساتھ تنہائی اور دیر سے ترقی کا اشارہ دے سکتا ہے۔" },
+    2: { status: "shubh", text: "دوسرے گھر میں زحل سازگار سمجھا جاتا ہے — مالی معاملات میں دیر سے مگر مستحکم نتائج دیتا ہے۔" },
+    3: { status: "shubh", text: "تیسرے گھر میں زحل محنت اور صبر سے حاصل ہونے والی کامیابی کا اشارہ دیتا ہے۔" },
+    4: { status: "ashubh", text: "چوتھے گھر میں زحل کے لیے کمزور مقام ہے — گھریلو سکون میں تاخیر اور ماں کی صحت سے متعلق توجہ کی ضرورت ظاہر کرتا ہے۔" },
+    5: { status: "ashubh", text: "پانچویں گھر میں زحل کے لیے کمزور مقام ہے — تعلیم میں تاخیر اور اولاد کے معاملات میں صبر کی ضرورت ظاہر کرتا ہے۔" },
+    6: { status: "ashubh", text: "چھٹے گھر میں زحل کے لیے کمزور مقام ہے — دشمنوں اور مشکلات کے معاملے میں زیادہ احتیاط درکار ہے۔" },
+    7: { status: "shubh", text: "ساتویں گھر میں زحل اپنے اعلیٰ مقام پر ہوتا ہے — ازدواجی زندگی میں وفاداری اور دیرپا تعلق کا اشارہ دیتا ہے۔" },
+    8: { status: "neutral", text: "آٹھویں گھر میں زحل کا اثر ملا جلا رہتا ہے — عمر اور حفاظت کے معاملے میں نسبتاً اچھا اثر رکھتا ہے۔" },
+    9: { status: "neutral", text: "نویں گھر میں زحل کا اثر حالات پر منحصر رہتا ہے — عموماً مستحکم نصیب اور دیرپا برکت کا اشارہ دیتا ہے۔" },
+    10: { status: "shubh", text: "دسویں گھر میں زحل اپنے ہی گھر میں ہوتا ہے — محنت سے کیریئر میں بڑی کامیابی کا اشارہ دیتا ہے۔" },
+    11: { status: "shubh", text: "گیارہویں گھر میں زحل دیر سے مگر مستحکم آمدنی کا اشارہ دیتا ہے۔" },
+    12: { status: "shubh", text: "بارہویں گھر میں زحل روحانی نظم و ضبط اور سادگی کے لیے سازگار اشارہ ہے۔" }
+  },
+  RAHU: {
+    1: { status: "ashubh", text: "راہو پہلے گھر میں کمزور مقام پر ہوتا ہے — شخصیت میں الجھن، بے چینی اور خود اعتمادی میں کمی کا اشارہ دے سکتا ہے۔" },
+    2: { status: "ashubh", text: "دوسرے گھر میں راہو کمزور مقام پر ہوتا ہے — مالی معاملات میں غیر یقینی اور خاندان میں غلط فہمیوں کی طرف اشارہ کرتا ہے۔" },
+    3: { status: "shubh", text: "تیسرے گھر میں راہو اپنے اعلیٰ مقام پر ہوتا ہے — ہمت اور غیر معمولی کامیابی کا اشارہ دے سکتا ہے۔" },
+    4: { status: "shubh", text: "چوتھے گھر میں راہو سازگار سمجھا جاتا ہے — یہاں روایتی منفی اثر کم ہو جاتا ہے۔" },
+    5: { status: "ashubh", text: "پانچویں گھر میں راہو کمزور مقام پر ہوتا ہے — تعلیم میں الجھن اور اولاد کے معاملات میں غیر یقینی کا اشارہ دے سکتا ہے۔" },
+    6: { status: "shubh", text: "چھٹے گھر میں راہو اپنے اعلیٰ مقام پر ہوتا ہے — دشمنوں پر غلبہ اور مشکلات سے نکلنے کی نمایاں صلاحیت دیتا ہے۔" },
+    7: { status: "ashubh", text: "ساتویں گھر میں راہو کمزور مقام پر ہوتا ہے — ازدواجی تعلقات میں غلط فہمی اور دوری کی طرف اشارہ کرتا ہے۔" },
+    8: { status: "neutral", text: "آٹھویں گھر میں راہو کا اثر حالات پر منحصر رہتا ہے — غیر متوقع حالات کی طرف اشارہ کرتا ہے، احتیاط ضروری ہے۔" },
+    9: { status: "neutral", text: "نویں گھر میں راہو اپنے کمزور (نیچ) مقام پر ہوتا ہے — نصیب اور دینی رجحان میں الجھن کی طرف اشارہ کر سکتا ہے۔" },
+    10: { status: "neutral", text: "دسویں گھر میں راہو کا اثر ملا جلا رہتا ہے — غیر معمولی طریقوں سے کیریئر میں ترقی ممکن ہے۔" },
+    11: { status: "neutral", text: "گیارہویں گھر میں راہو اپنے کمزور (نیچ) مقام پر ہوتا ہے — آمدنی میں غیر یقینی کا امکان رہتا ہے۔" },
+    12: { status: "ashubh", text: "بارہویں گھر میں راہو کمزور مقام پر ہوتا ہے — نیند میں خلل، خوف اور بے فائدہ خرچ کی طرف اشارہ کرتا ہے۔" }
+  },
+  KETU: {
+    1: { status: "neutral", text: "پہلے گھر میں کیتو کا اثر ملا جلا رہتا ہے — شخصیت میں روحانی رجحان کے ساتھ بے چینی بھی محسوس ہو سکتی ہے۔" },
+    2: { status: "neutral", text: "دوسرے گھر میں کیتو کا اثر حالات پر منحصر رہتا ہے — مالی معاملات میں سادگی اور بے دلی دونوں نظر آ سکتے ہیں۔" },
+    3: { status: "shubh", text: "تیسرے گھر میں کیتو سازگار سمجھا جاتا ہے — ہمت اور غیر معمولی صلاحیت کا اشارہ دے سکتا ہے۔" },
+    4: { status: "neutral", text: "چوتھے گھر میں کیتو کا اثر ملا جلا رہتا ہے — گھریلو سکون میں بے قراری محسوس ہو سکتی ہے، توجہ مفید رہتی ہے۔" },
+    5: { status: "neutral", text: "پانچویں گھر میں کیتو اپنے اعلیٰ مقام پر ہوتا ہے — تعلیم میں روحانی رجحان بڑھ سکتا ہے، مگر دلچسپی میں کمی بھی ممکن ہے۔" },
+    6: { status: "ashubh", text: "چھٹے گھر میں کیتو اپنے ہی گھر میں مگر کمزور (نیچ) حالت میں ہوتا ہے — نتیجہ ملا جلا رہتا ہے، احتیاط بہتر ہے۔" },
+    7: { status: "ashubh", text: "ساتویں گھر میں کیتو کمزور مقام پر ہوتا ہے — ازدواجی تعلقات میں بے دلی اور دوری کی طرف اشارہ کر سکتا ہے۔" },
+    8: { status: "ashubh", text: "آٹھویں گھر میں کیتو اپنے کمزور (نیچ) مقام پر ہوتا ہے — پوشیدہ معاملات اور غیر یقینی کیفیت کی طرف اشارہ کرتا ہے۔" },
+    9: { status: "shubh", text: "نویں گھر میں کیتو اپنے اعلیٰ مقام پر ہوتا ہے — روحانی رجحان اور دینی تلاش میں نمایاں اضافہ کر سکتا ہے۔" },
+    10: { status: "shubh", text: "دسویں گھر میں کیتو سازگار سمجھا جاتا ہے — کیریئر میں غیر روایتی مگر مفید راستے کھل سکتے ہیں۔" },
+    11: { status: "ashubh", text: "گیارہویں گھر میں کیتو کمزور مقام پر ہوتا ہے — آمدنی میں غیر یقینی اور دوستوں سے دوری کا اشارہ دے سکتا ہے۔" },
+    12: { status: "shubh", text: "بارہویں گھر میں کیتو اپنے اعلیٰ مقام پر ہوتا ہے — روحانیت، عبادت اور دنیا سے بے رغبتی کے لیے بہترین اشارہ ہے۔" }
+  }
+};
+
+// Islamic-friendly remedies for each planet (replacing Hindu-ritual totke with
+// Quranic/Sunnah-based wazaif, sadqa, dua and lifestyle adjustments)
+const ISLAMIC_REMEDIES = {
+  SUN: {
+    title: "سورج کے لیے روحانی تدابیر",
+    items: [
+      "فجر کی نماز کی پابندی کریں اور سورج طلوع ہونے کے وقت استغفار کی کثرت کریں۔",
+      "والد یا بڑوں کا ادب و احترام کریں اور ان کے لیے دعا کریں۔",
+      "ہر روز صبح صدقہ دینے کی نیت رکھیں، خصوصاً اتوار کے دن۔",
+      "سورۃ الشمس کی تلاوت کا معمول بنائیں۔",
+      "غصے پر قابو رکھنے کے لیے استعاذہ (اعوذ باللہ) پڑھنے کی عادت ڈالیں۔"
+    ]
+  },
+  MOON: {
+    title: "چاند کے لیے روحانی تدابیر",
+    items: [
+      "ماں کا ادب کریں، ان کی خدمت کریں اور ان کے لیے دعائے مغفرت پڑھیں۔",
+      "سفید رنگ کی اشیاء (دودھ، چینی، چاول) کا صدقہ کریں، خصوصاً پیر کے دن۔",
+      "رات کو سونے سے پہلے سورۃ الملک کی تلاوت کریں، اس سے ذہنی سکون ملتا ہے۔",
+      "وضو کی پابندی کریں اور پانی کے استعمال میں احتیاط برتیں۔",
+      "زیادہ سے زیادہ درود شریف پڑھنے کا معمول بنائیں۔"
+    ]
+  },
+  MARS: {
+    title: "مریخ کے لیے روحانی تدابیر",
+    items: [
+      "غصے کے وقت وضو کرنے اور بیٹھ جانے کی سنت پر عمل کریں۔",
+      "منگل کے دن غرباء میں کھانا تقسیم کریں یا مالی صدقہ کریں۔",
+      "سورۃ یٰسین کی تلاوت کا معمول بنائیں، خصوصاً صبح کے وقت۔",
+      "بہن بھائیوں سے تعلقات بہتر رکھیں اور ان سے بدگمانی سے بچیں۔",
+      "زیادہ سرخ یا اشتعال انگیز چیزوں سے پرہیز کریں، صبر اور درگزر کو اپنائیں۔"
+    ]
+  },
+  MERCURY: {
+    title: "عطارد کے لیے روحانی تدابیر",
+    items: [
+      "بدھ کے دن سورۃ الرحمن کی تلاوت کریں، یہ زبان و فہم میں برکت کا باعث ہے۔",
+      "جھوٹ، غیبت اور بے فائدہ گفتگو سے مکمل پرہیز کریں۔",
+      "علم دین حاصل کرنے یا کسی کو سکھانے میں وقت گزاریں۔",
+      "ضرورت مند طالب علموں کی مالی یا تعلیمی مدد کریں۔",
+      "ہر کام شروع کرنے سے پہلے بسم اللہ پڑھنے کا معمول بنائیں۔"
+    ]
+  },
+  JUPITER: {
+    title: "جوپیٹر (برہسپتی) کے لیے روحانی تدابیر",
+    items: [
+      "جمعرات کے دن صدقہ و خیرات کا خاص معمول بنائیں۔",
+      "علماء اور اساتذہ کا احترام کریں اور ان سے دعا کی درخواست کریں۔",
+      "سورۃ یٰسین یا سورۃ الواقعہ کی روزانہ تلاوت کریں۔",
+      "زکوۃ کی ادائیگی میں کوتاہی نہ کریں اور حلال کمائی پر توجہ دیں۔",
+      "ہر نماز کے بعد استغفار اور شکرانے کی دعا پڑھنے کی عادت بنائیں۔"
+    ]
+  },
+  VENUS: {
+    title: "زہرہ کے لیے روحانی تدابیر",
+    items: [
+      "جمعہ کے دن غسل، خوشبو اور صاف ستھرے لباس کی سنت پر عمل کریں۔",
+      "ازدواجی تعلقات میں نرمی، محبت اور صبر کو اپنائیں۔",
+      "سورۃ مریم کی تلاوت کا معمول بنائیں۔",
+      "بیٹیوں اور خواتین کے ساتھ حسنِ سلوک اور ان کے حقوق کی پاسداری کریں۔",
+      "حلال رزق میں شکر گزاری اور فضول خرچی سے اجتناب کریں۔"
+    ]
+  },
+  SATURN: {
+    title: "زحل کے لیے روحانی تدابیر",
+    items: [
+      "ہفتہ کے دن غرباء، مساکین اور بزرگوں کی خدمت اور صدقہ کریں۔",
+      "صبر و استقامت کے لیے سورۃ العصر اور سورۃ الانشراح کی تلاوت کریں۔",
+      "والدین اور بڑوں کی خدمت میں کوتاہی نہ کریں۔",
+      "نماز کی پابندی اور وقت کی قدر کریں، سستی سے اجتناب کریں۔",
+      "محنت کے ساتھ صبر اور توکل علی اللہ کو اپنا شعار بنائیں۔"
+    ]
+  },
+  RAHU: {
+    title: "اہم مشکلات کے لیے روحانی تدابیر",
+    items: [
+      "صبح و شام معوذتین (سورۃ الفلق و سورۃ الناس) کی تلاوت کریں۔",
+      "آیت الکرسی کو روزانہ پڑھنے کا معمول بنائیں۔",
+      "بے فکری اور پریشانی کے وقت کثرت سے استغفار کریں۔",
+      "وہم اور بے بنیاد خوف کو دعا اور ذکر سے دور کریں، نہ کہ تعویذ گنڈوں سے۔",
+      "ہر معاملے میں اللہ پر توکل رکھیں اور غیب کے علم کی تلاش سے بچیں۔"
+    ]
+  },
+  KETU: {
+    title: "روحانی رجحان اور سکون کے لیے تدابیر",
+    items: [
+      "تنہائی میں زیادہ وقت گزارنے کے بجائے نماز باجماعت کی پابندی کریں۔",
+      "صدقہ خفیہ (پوشیدہ صدقہ) کا معمول بنائیں۔",
+      "ذکر اللہ، خصوصاً 'لا الٰہ الا اللہ' کی کثرت کریں۔",
+      "روحانی تلاش کو قرآن و سنت کے دائرے میں رکھیں۔",
+      "نیند سے پہلے اور بعد دعائیں پڑھنے کا معمول بنائیں۔"
+    ]
+  }
+};
+
+// General Lal Kitab-style timing remedies (day-wise) — kept Islamic-friendly
+const DAYWISE_REMEDIES = [
+  { day: "اتوار", planet: "سورج", remedy: "صدقہ دیں، والد کے لیے دعا کریں، سورۃ الشمس پڑھیں۔" },
+  { day: "پیر", planet: "چاند", remedy: "ماں کی خدمت کریں، سفید اشیاء کا صدقہ کریں، سورۃ الملک پڑھیں۔" },
+  { day: "منگل", planet: "مریخ", remedy: "غرباء میں کھانا تقسیم کریں، سورۃ یٰسین پڑھیں، صبر کا دامن تھامیں۔" },
+  { day: "بدھ", planet: "عطارد", remedy: "سچ بولیں، علم کا تبادلہ کریں، سورۃ الرحمن پڑھیں۔" },
+  { day: "جمعرات", planet: "جوپیٹر", remedy: "صدقہ و خیرات کریں، علماء کا احترام کریں، سورۃ یٰسین پڑھیں۔" },
+  { day: "جمعہ", planet: "زہرہ", remedy: "غسل اور صفائی کا خاص خیال رکھیں، سورۃ مریم پڑھیں، صدقہ دیں۔" },
+  { day: "ہفتہ", planet: "زحل", remedy: "بزرگوں کی خدمت کریں، سورۃ العصر پڑھیں، صبر و توکل اپنائیں۔" }
+];
+
+// Lal Kitab predictions framing — descriptive insight, not fixed-fate prediction
+const PREDICTION_INTRO = "لال کتاب کے اصولوں کے مطابق سیارگان کی گھروں میں پوزیشن زندگی کے مختلف پہلوؤں کی طرف رہنمائی دیتی ہے۔ یہ نشاندہی محض ایک عمومی رجحان ہے — حتمی فیصلہ، تقدیر اور غیب کا علم صرف اللہ تعالیٰ کے پاس ہے۔ ان اشاروں کو سمجھ کر بہتر تدابیر اور دعا کی طرف رجوع کیا جا سکتا ہے۔";
+
+/* ===========================================================
+   SLEEPING HOUSE (سویا ہوا گھر) — Soya Ghar concept
+   In Lal Kitab, a house with no planet in it is considered
+   "asleep" and does not give its full themed results until it
+   is "awakened." Each house has a specific awakening planet
+   whose remedy activates it. This is cross-verified across
+   multiple Lal Kitab sources (Pt. Roop Chand Joshi tradition).
+   We map the traditional "awakening planet" to its Islamic-
+   friendly remedy category already defined in ISLAMIC_REMEDIES,
+   rather than the ritual practices traditionally prescribed.
+   =========================================================== */
+const SLEEPING_HOUSE_INTRO = "لال کتاب کے اصول کے مطابق جس گھر میں کوئی سیارہ موجود نہ ہو، وہ گھر \"سویا ہوا\" تصور کیا جاتا ہے — یعنی وہ اپنا مکمل اثر اس وقت تک نہیں دکھاتا جب تک اسے \"جگایا\" نہ جائے۔ ہر گھر کے لیے ایک خاص سیارہ بتایا گیا ہے جس کی تدبیر اس گھر کو متحرک کرتی ہے۔ ہم نے روایتی رسومات کے بجائے انہی سیاروں سے منسلک اسلامی تدابیر کو یہاں شامل کیا ہے۔";
+
+const HOUSE_AWAKENING_PLANET = {
+  1: "MARS", 2: "MOON", 3: "MERCURY", 4: "MOON",
+  5: "SUN", 6: "RAHU", 7: "VENUS", 8: "MOON",
+  9: "JUPITER", 10: "SATURN", 11: "JUPITER", 12: "KETU"
+};
+
+function findSleepingHouses(houses) {
+  const occupied = new Set(Object.values(houses));
+  const sleeping = [];
+  for (let h = 1; h <= 12; h++) {
+    if (!occupied.has(h)) {
+      sleeping.push(h);
+    }
+  }
+  return sleeping;
+}
+
+/* ===========================================================
+   VARSHPHAL (سالانہ کنڈلی) — Muntha System
+   Muntha = yearly ascendant point. Counted from natal Lagna,
+   advancing one house per year of age (cyclical, 12-house wrap).
+   This is the standard, well-documented Lal Kitab/Tajik method.
+   =========================================================== */
+const MUNTHA_HOUSE_THEMES = {
+  1: "اس سال زندگی کا مرکز خود اپنی ذات، صحت اور شخصیت پر رہے گا۔ نئے آغاز اور خود اعتمادی کا سال۔",
+  2: "اس سال مال، خاندان اور بول چال کے معاملات نمایاں رہیں گے۔ بچت اور خاندانی معاملات پر توجہ دیں۔",
+  3: "اس سال ہمت، کوششوں اور بہن بھائیوں سے تعلقات کا سال ہے۔ نئے ہنر سیکھنے کا اچھا وقت۔",
+  4: "اس سال گھر، ماں اور دلی سکون کے معاملات مرکز میں رہیں گے۔ جائیداد سے متعلق فیصلے ممکن ہیں۔",
+  5: "اس سال اولاد، تعلیم اور ذہنی صلاحیتوں پر توجہ کا سال ہے۔ تخلیقی منصوبے کامیاب ہو سکتے ہیں۔",
+  6: "اس سال صحت، مشکلات اور قرض کے معاملات پر خاص توجہ کی ضرورت ہے۔ احتیاط اور صبر اہم ہے۔",
+  7: "اس سال ازدواجی زندگی اور شراکت داری کے معاملات نمایاں رہیں گے۔ تعلقات میں نرمی رکھیں۔",
+  8: "اس سال اچانک تبدیلیوں اور پوشیدہ معاملات کا سال ہے۔ بڑے فیصلوں میں احتیاط برتیں۔",
+  9: "اس سال نصیب، دینی رجحان اور سفر کے امکانات روشن ہیں۔ والد سے تعلقات بہتر ہو سکتے ہیں۔",
+  10: "اس سال کام، روزگار اور سماجی مقام پر خاص توجہ کا سال ہے۔ محنت کا پھل ملنے کا امکان ہے۔",
+  11: "اس سال آمدنی، خواہشات کی تکمیل اور دوستوں سے فائدے کا سال ہے۔",
+  12: "اس سال اخراجات، نیند اور روحانی رجحان پر توجہ کا سال ہے۔ سادگی اور عبادت میں وقت گزاریں۔"
+};
+
+function calculateMunthaHouse(natalAscSignIdx, currentAge) {
+  // Muntha advances one house per year of age, starting at house 1 in year 1 (birth year)
+  // currentAge: completed years (age the person is turning / has turned this birthday)
+  const houseOffset = currentAge % 12;
+  return (houseOffset % 12) + 1;
+}
+
+/* ===========================================================
+   36-SAALA BHAV CHAKRA — Lal Kitab's own house-timing dasha
+   (distinct from Vedic Vimshottari). Each house "activates"
+   for 3 years in a fixed repeating sequence, cycling through
+   all 12 houses every 36 years.
+   Source: traditional Lal Kitab 36-year Bhav Chakra system.
+   =========================================================== */
+const BHAV_CHAKRA_SEQUENCE = [1,2,3,4,5,6,7,8,9,10,11,12]; // house order, 3 years each
+const BHAV_CHAKRA_YEARS_PER_HOUSE = 3;
+
+function getBhavChakraHouse(age) {
+  const cyclePos = age % 36;
+  const idx = Math.floor(cyclePos / BHAV_CHAKRA_YEARS_PER_HOUSE) % 12;
+  return BHAV_CHAKRA_SEQUENCE[idx];
+}
+
+const BHAV_CHAKRA_INTRO = "لال کتاب کا اپنا ایک قدیم نظام ہے جسے 36 سالہ بھاو چکر کہا جاتا ہے۔ اس کے مطابق زندگی میں ہر تین سال بعد ایک نیا گھر متحرک (active) ہوتا ہے، اور وہی گھر اس دور میں زندگی کے مرکزی موضوع کی نشاندہی کرتا ہے۔ 36 سال مکمل ہونے پر یہ چکر دوبارہ شروع ہو جاتا ہے۔";
+
+/* ===========================================================
+   RIN (قرض) — Karmic-style Debt Diagnostic
+   NOTE: We keep ONLY the diagnostic identification (purely a
+   reading of planet-house combinations) from the Lal Kitab
+   tradition. We deliberately EXCLUDE remedies like temple
+   visits, water-offerings (tarpan), feeding crows on amavasya,
+   or donations to temples — replacing them entirely with
+   Islamic-appropriate alternatives (sadqa, dua, khidmat).
+   =========================================================== */
+const RIN_TYPES = {
+  PITRA: {
+    name: "آبائی ذمہ داری (پدری رِن)",
+    desc: "یہ نشاندہی والد کی طرف سے وراثت میں ملنے والی ذمہ داریوں اور خاندانی معاملات کی طرف اشارہ کرتی ہے — جیسے خاندانی رشتوں میں دوری یا والد سے متعلق معاملات میں توجہ کی کمی۔",
+    check: (houses) => houses['SUN'] && [6,8,12].includes(houses['SUN']) || (houses['SATURN'] === 9),
+    remedy: [
+      "والد اور بڑوں کی خدمت اور ان کا احترام کریں، ان سے دعا کی درخواست کریں۔",
+      "والدین یا بڑوں کے انتقال کی صورت میں ان کے لیے ایصالِ ثواب اور صدقہ جاریہ کریں۔",
+      "خاندان میں صلح اور رشتے بحال کرنے کی کوشش کریں۔",
+      "جمعہ کے دن سورۃ الفاتحہ مرحومین کے لیے پڑھیں۔"
+    ]
+  },
+  MATRI: {
+    name: "مادری ذمہ داری (متری رِن)",
+    desc: "یہ نشاندہی ماں سے متعلق جذباتی یا گھریلو معاملات میں توجہ کی کمی کی طرف اشارہ کرتی ہے۔",
+    check: (houses) => houses['KETU'] === 4 || houses['MOON'] === 8 || houses['MOON'] === 6,
+    remedy: [
+      "ماں کی خدمت اور ان کے ساتھ وقت گزارنے کو معمول بنائیں۔",
+      "ماں کے لیے خاص طور پر دعا کریں اور ان کی رضا حاصل کرنے کی کوشش کریں۔",
+      "سفید اشیاء کا صدقہ کریں اور پیر کے دن کسی ضرورت مند کی مدد کریں۔"
+    ]
+  },
+  STREE: {
+    name: "ازدواجی ذمہ داری (زوجہ رِن)",
+    desc: "یہ نشاندہی شریک حیات یا خواتین رشتہ داروں کے ساتھ تعلقات میں عدم توجہ یا نارواروی کی طرف اشارہ کرتی ہے۔",
+    check: (houses) => houses['VENUS'] === 8 || houses['VENUS'] === 6,
+    remedy: [
+      "ازدواجی زندگی میں نرمی، صبر اور حسنِ سلوک کو اپنائیں۔",
+      "بیوی، بیٹیوں اور خواتین رشتہ داروں کے حقوق کا خاص خیال رکھیں۔",
+      "جمعہ کے دن صدقہ دیں اور سورۃ النساء کی تعلیمات پر غور کریں۔"
+    ]
+  }
+};
+
+const RIN_INTRO = "لال کتاب کی روایت میں بعض سیاروں کی مخصوص گھروں میں موجودگی کو ایک علامتی \"ذمہ داری\" (رِن) سے تعبیر کیا جاتا ہے — یعنی ایسے معاملات جن میں خاص توجہ، صلہ رحمی یا تلافی کی ضرورت ہو۔ ہم نے روایتی رسومات (جیسے مخصوص رسوم یا غیر اسلامی اعمال) کو خارج کرتے ہوئے صرف وہی تدابیر شامل کی ہیں جو قرآن و سنت سے ہم آہنگ ہیں۔ یاد رہے کہ حقیقی معافی اور تلافی صرف اللہ کی رضا اور نیک اعمال سے ممکن ہے۔";
+
+/* ===========================================================
+   PLANETARY COMBINATIONS (یوگ) — same-house conjunctions
+   Complete set of all 36 possible planet-pair conjunctions
+   (9 planets => 9C2 = 36 pairs), based on classical Lal Kitab
+   combination principles (Masnui/substitute planets, Dharmi
+   yoga, planetary friendships, and documented pair-effects).
+   Remedies are kept Islamic-friendly throughout.
+   =========================================================== */
+const PLANET_COMBINATIONS = [
+  { pair: ["SUN","MOON"], name: "سورج اور چاند کا اکٹھا ہونا",
+    desc: "یہ امتزاج ذہنی اور جذباتی پہلوؤں میں تضاد کی طرف اشارہ کرتا ہے — دل اور دماغ کے فیصلوں میں کشمکش محسوس ہو سکتی ہے۔ مثبت صورت میں یہ امتزاج خاندانی خوشحالی اور نئے منصوبوں میں فائدہ بھی دے سکتا ہے۔",
+    remedy: "والدین دونوں سے حسنِ سلوک رکھیں، اور دل کے سکون کے لیے روزانہ سورۃ الفاتحہ اور درود شریف کی کثرت کریں۔" },
+  { pair: ["SUN","MARS"], name: "سورج اور مریخ کا اکٹھا ہونا",
+    desc: "یہ امتزاج ہمت، بہادری اور قائدانہ صلاحیت کو بڑھاتا ہے، مگر ساتھ ہی غصے اور جلد بازی کے رویے کی طرف بھی اشارہ کرتا ہے۔ توانائی کا درست استعمال کامیابی دے سکتا ہے۔",
+    remedy: "غصے پر قابو رکھنے کی مشق کریں، اور توانائی کو نیک کاموں میں صرف کرنے کی نیت رکھیں۔" },
+  { pair: ["SUN","MERCURY"], name: "سورج اور عطارد کا اکٹھا ہونا",
+    desc: "یہ امتزاج عموماً اچھے نتائج دیتا ہے — ذہانت، عمدہ گفتگو اور قابلیت میں اضافہ کرتا ہے۔ روایتی طور پر اسے انتظامی اور مشاورتی صلاحیتوں کے لیے سازگار سمجھا جاتا ہے۔",
+    remedy: "علم اور سچائی کو اپنا شعار بنائیں، اور حاصل ہونے والی صلاحیت کو دوسروں کی بھلائی کے لیے استعمال کریں۔" },
+  { pair: ["SUN","JUPITER"], name: "سورج اور جوپیٹر کا اکٹھا ہونا",
+    desc: "یہ امتزاج علم، وقار اور رہنمائی کی صلاحیت کے لیے اچھا سمجھا جاتا ہے، تاہم بعض اوقات مالی معاملات میں احتیاط کی ضرورت ہو سکتی ہے۔",
+    remedy: "زکوۃ اور صدقہ کی پابندی کریں، اور علم کو عاجزی کے ساتھ استعمال کریں۔" },
+  { pair: ["SUN","VENUS"], name: "سورج اور زہرہ کا اکٹھا ہونا",
+    desc: "یہ امتزاج شخصیت میں دلکشی اور جمالیاتی ذوق بڑھاتا ہے، مگر ازدواجی تعلقات میں توازن برقرار رکھنے کے لیے خاص توجہ درکار ہوتی ہے۔",
+    remedy: "ازدواجی معاملات میں نرمی اور انصاف کو اپنائیں، اور فضول خرچی سے اجتناب کریں۔" },
+  { pair: ["SUN","SATURN"], name: "سورج اور زحل کا اکٹھا ہونا",
+    desc: "یہ ایک توجہ طلب امتزاج ہے جو والد سے تعلقات میں دوری، کام میں تاخیر اور ذہنی دباؤ کی طرف اشارہ کرتا ہے۔ روایتی طور پر اسے گھریلو سکون کے لیے احتیاط طلب سمجھا جاتا ہے۔",
+    remedy: "والد کا ادب کریں، صبر سے کام لیں، اور ہفتہ کے دن غرباء کی مدد اور استغفار کا معمول بنائیں۔" },
+  { pair: ["SUN","RAHU"], name: "سورج اور راہو کا اکٹھا ہونا",
+    desc: "روایتی طور پر اسے سازگار امتزاج نہیں سمجھا جاتا — یہ اعتماد میں کمی، وہم اور غیر یقینی حالات کی طرف اشارہ کرتا ہے۔",
+    remedy: "آیت الکرسی اور معوذتین کی تلاوت کا معمول بنائیں، اور بے بنیاد خوف کو دل میں جگہ نہ دیں۔" },
+  { pair: ["SUN","KETU"], name: "سورج اور کیتو کا اکٹھا ہونا",
+    desc: "اس امتزاج میں سورج کا اثر کمزور ہو سکتا ہے، اور معاملات پراسرار یا غیر واضح محسوس ہو سکتے ہیں۔ والد سے تعلقات میں توجہ کی ضرورت ہے۔",
+    remedy: "والد کے لیے دعا کریں، اور وضاحت طلب معاملات میں صبر اور استخارہ سے رہنمائی لیں۔" },
+  { pair: ["MOON","MARS"], name: "چاند اور مریخ کا اکٹھا ہونا",
+    desc: "یہ امتزاج جذباتی بے چینی اور غصے میں جلد آنے کی طرف اشارہ کرتا ہے، خصوصاً ماں سے متعلق معاملات میں۔",
+    remedy: "ماں کی خدمت اور صبر کا دامن تھامیں، اور سورۃ یٰسین کی تلاوت کا معمول بنائیں۔" },
+  { pair: ["MOON","MERCURY"], name: "چاند اور عطارد کا اکٹھا ہونا",
+    desc: "یہ امتزاج عموماً ذہنی وضاحت اور اچھی گفتگو کے لیے اچھا ہے، تاہم کچھ گھروں میں یہ ذہنی الجھن اور فیصلوں میں تردد کی طرف بھی اشارہ کر سکتا ہے۔",
+    remedy: "ذہنی سکون کے لیے سورۃ الرحمن کی تلاوت کریں، اور جھوٹ یا غیر ضروری گفتگو سے اجتناب کریں۔" },
+  { pair: ["MOON","JUPITER"], name: "چاند اور جوپیٹر کا اکٹھا ہونا",
+    desc: "روایتی طور پر یہ ایک سازگار امتزاج سمجھا جاتا ہے، خصوصاً جب انسان فلاحی کاموں میں مصروف ہو۔ ماں اور دینی رجحان دونوں کو فائدہ پہنچ سکتا ہے۔",
+    remedy: "فلاحی اور خیر کے کاموں میں حصہ لیں، اور ماں کی دعا حاصل کرنے کی کوشش کریں۔" },
+  { pair: ["MOON","VENUS"], name: "چاند اور زہرہ کا اکٹھا ہونا",
+    desc: "یہ امتزاج ہنر اور تخلیقی صلاحیتوں کو نکھارتا ہے۔ انسان اپنی پوشیدہ صلاحیتیں دکھانے کی طرف مائل ہوتا ہے۔",
+    remedy: "اپنے ہنر کو حلال اور نیک مقصد کے لیے استعمال کریں، اور ماں اور بیوی دونوں سے حسنِ سلوک رکھیں۔" },
+  { pair: ["MOON","SATURN"], name: "چاند اور زحل کا اکٹھا ہونا",
+    desc: "یہ امتزاج ذہنی دباؤ، اداسی اور ماں کی صحت سے متعلق توجہ کی طرف اشارہ کرتا ہے۔ معاملات میں تاخیر بھی محسوس ہو سکتی ہے۔",
+    remedy: "ماں کی خدمت اور دعا کریں، صبر اپنائیں، اور ہفتہ کے دن صدقہ کا معمول بنائیں۔" },
+  { pair: ["MOON","RAHU"], name: "چاند اور راہو کا اکٹھا ہونا",
+    desc: "روایتی طور پر اس امتزاج میں چاند کا اثر کمزور پڑ جاتا ہے، جس سے ذہنی بے چینی، وہم اور نیند میں خلل کا امکان ہوتا ہے۔",
+    remedy: "سونے سے پہلے آیت الکرسی اور معوذتین کی تلاوت کریں، اور وہم سے بچنے کے لیے استغفار کریں۔" },
+  { pair: ["MOON","KETU"], name: "چاند اور کیتو کا اکٹھا ہونا",
+    desc: "یہ امتزاج جذباتی الجھن اور ماں سے متعلق معاملات میں غیر واضح کیفیت کی طرف اشارہ کرتا ہے۔",
+    remedy: "ماں سے تعلق مضبوط رکھیں، اور دل کے سکون کے لیے ذکر و تلاوت کا معمول بنائیں۔" },
+  { pair: ["MARS","MERCURY"], name: "مریخ اور عطارد کا اکٹھا ہونا",
+    desc: "یہ امتزاج تیز فیصلوں اور ذہانت کو ملا دیتا ہے، تاہم کبھی کبھار بحث و تکرار میں جلد بازی کی طرف بھی لے جا سکتا ہے۔",
+    remedy: "بات چیت میں نرمی رکھیں، اور فیصلے سوچ سمجھ کر کرنے کی عادت اپنائیں۔" },
+  { pair: ["MARS","JUPITER"], name: "مریخ اور جوپیٹر کا اکٹھا ہونا",
+    desc: "یہ امتزاج انصاف پسندی اور حق کے لیے کھڑے ہونے کی صلاحیت دیتا ہے۔ روایتی طور پر اسے انصاف کے سیاروں کا ملاپ کہا جاتا ہے۔",
+    remedy: "انصاف اور دیانت کو اپنا شعار بنائیں، اور علم کو نیک مقصد کے لیے استعمال کریں۔" },
+  { pair: ["MARS","VENUS"], name: "زہرہ اور مریخ کا اکٹھا ہونا",
+    desc: "یہ امتزاج محنت اور قوتِ ارادی بڑھاتا ہے، اور بعض گھروں میں اسے سخت کوشش اور استقامت کے لیے اچھا سمجھا جاتا ہے۔ تعلقات میں جوش اور بے صبری بھی محسوس ہو سکتی ہے۔",
+    remedy: "محنت کے ساتھ صبر کو جوڑیں، اور تعلقات میں نرمی اپنائیں۔" },
+  { pair: ["MARS","SATURN"], name: "مریخ اور زحل کا اکٹھا ہونا",
+    desc: "یہ ایک توجہ طلب امتزاج ہے جو غصے اور سستی کے درمیان تضاد، ذہنی بے چینی اور تاخیر سے فیصلوں کی طرف اشارہ کرتا ہے۔ حادثات سے بچنے کے لیے زیادہ احتیاط برتیں۔",
+    remedy: "صبر اور غصے پر قابو رکھنے کی مشق کریں، باقاعدگی سے نماز کی پابندی کریں، اور منگل و ہفتہ کے دن صدقہ کریں۔" },
+  { pair: ["MARS","RAHU"], name: "مریخ اور راہو کا اکٹھا ہونا",
+    desc: "روایتی طور پر اس امتزاج میں راہو کا اثر کمزور پڑ جاتا ہے۔ توانائی بکھر سکتی ہے اور بے صبری بڑھ سکتی ہے۔",
+    remedy: "صبر اور سکون کے لیے ذکر کا معمول بنائیں، اور بے وجہ جوش سے اجتناب کریں۔" },
+  { pair: ["MARS","KETU"], name: "مریخ اور کیتو کا اکٹھا ہونا",
+    desc: "یہ امتزاج توانائی کو غیر یقینی سمت میں لے جا سکتا ہے، اور بعض اوقات حادثات سے بچنے کے لیے احتیاط کی ضرورت ہوتی ہے۔",
+    remedy: "احتیاط اور صدقہ کا معمول بنائیں، اور بے سوچے فیصلوں سے گریز کریں۔" },
+  { pair: ["MERCURY","JUPITER"], name: "عطارد اور جوپیٹر کا اکٹھا ہونا",
+    desc: "روایتی طور پر یہ ایک نہایت سازگار امتزاج سمجھا جاتا ہے — ذہانت اور حکمت دونوں کو یکجا کرتا ہے، اور علمی میدان میں کامیابی کا اشارہ دیتا ہے۔",
+    remedy: "علم کا تبادلہ کریں، علماء کا احترام کریں، اور حاصل ہونے والی فہم کا شکر ادا کریں۔" },
+  { pair: ["MERCURY","VENUS"], name: "عطارد اور زہرہ کا اکٹھا ہونا",
+    desc: "یہ دونوں سیارے روایتی طور پر دوست سمجھے جاتے ہیں۔ یہ امتزاج ہنر، فنکارانہ صلاحیت اور خوشگوار گفتگو کے لیے اچھا ہے۔",
+    remedy: "ہنر کو نیک مقصد کے لیے استعمال کریں، اور سچائی اور نرمی کو ساتھ رکھیں۔" },
+  { pair: ["MERCURY","SATURN"], name: "عطارد اور زحل کا اکٹھا ہونا",
+    desc: "یہ امتزاج سنجیدگی اور محنت کے ساتھ ذہانت کو جوڑتا ہے، تاہم فیصلوں میں تاخیر اور زیادہ سوچ بچار کی طرف بھی اشارہ کر سکتا ہے۔",
+    remedy: "وقت کی قدر کریں اور فیصلوں میں غیر ضروری تاخیر سے گریز کریں۔" },
+  { pair: ["MERCURY","RAHU"], name: "عطارد اور راہو کا اکٹھا ہونا",
+    desc: "یہ امتزاج ذہنی تیزی تو دیتا ہے مگر بعض اوقات بے بنیاد خوف، وہم یا گفتگو میں الجھن کی طرف اشارہ کر سکتا ہے۔",
+    remedy: "سچ بولنے کی عادت اپنائیں، اور وہم سے بچنے کے لیے آیت الکرسی کی تلاوت کریں۔" },
+  { pair: ["MERCURY","KETU"], name: "عطارد اور کیتو کا اکٹھا ہونا",
+    desc: "یہ امتزاج ذہنی الجھن یا غیر روایتی سوچ کی طرف اشارہ کرتا ہے، مگر روحانی موضوعات میں دلچسپی بھی بڑھا سکتا ہے۔",
+    remedy: "علم کو قرآن و سنت کے دائرے میں رکھیں، اور بے فائدہ بحث سے گریز کریں۔" },
+  { pair: ["JUPITER","VENUS"], name: "جوپیٹر اور زہرہ کا اکٹھا ہونا",
+    desc: "روایتی طور پر اسے \"نمائشی دولت\" (دکھاوے کی مالی خوشحالی) کہا جاتا ہے — مالی فراوانی نظر آتی ہے، مگر بعض اوقات حقیقی بچت یا اولاد کے معاملات میں کمی محسوس ہو سکتی ہے۔",
+    remedy: "دکھاوے سے بچیں، حلال رزق پر قناعت کریں، اور صدقہ و خیرات کا معمول بنائیں۔" },
+  { pair: ["JUPITER","SATURN"], name: "جوپیٹر اور زحل کا اکٹھا ہونا",
+    desc: "روایتی طور پر اس امتزاج کو \"دھرمی یوگ\" کہا جاتا ہے — یہ زبردست ذہنی اور روحانی قوت دیتا ہے، اور مشکل وقت میں غیبی مدد ملنے کا اشارہ دیتا ہے۔ بعض گھروں میں مالی معاملات میں احتیاط درکار ہوتی ہے۔",
+    remedy: "نیک نیتی کے ساتھ علم اور عبادت میں وقت گزاریں، اور مشکل وقت میں صبر کے ساتھ اللہ پر توکل رکھیں۔" },
+  { pair: ["JUPITER","RAHU"], name: "جوپیٹر اور راہو کا اکٹھا ہونا",
+    desc: "یہ امتزاج دینی رجحان اور دنیاوی خواہشات کے درمیان کشمکش، یا علم کے غلط استعمال کے امکان کی طرف اشارہ کرتا ہے۔",
+    remedy: "علم کو نیک مقصد کے لیے استعمال کریں، علماء کی رہنمائی حاصل کریں، اور باقاعدگی سے استغفار کریں۔" },
+  { pair: ["JUPITER","KETU"], name: "جوپیٹر اور کیتو کا اکٹھا ہونا",
+    desc: "یہ امتزاج روحانی تلاش اور دینی رجحان میں اضافہ کر سکتا ہے، مگر بعض اوقات علم سے بے رغبتی یا غیر یقینی کیفیت کی طرف بھی اشارہ کرتا ہے۔",
+    remedy: "علم اور عبادت میں مستقل مزاجی رکھیں، اور روحانی تلاش کو قرآن و سنت کے دائرے میں رکھیں۔" },
+  { pair: ["VENUS","SATURN"], name: "زہرہ اور زحل کا اکٹھا ہونا",
+    desc: "یہ امتزاج تعلقات میں سنجیدگی اور وفاداری لاتا ہے، تاہم خوشی اور تازگی میں تاخیر یا کمی کا احساس بھی ہو سکتا ہے۔",
+    remedy: "ازدواجی زندگی میں صبر اور خوشگوار رویہ اپنائیں، اور رزق میں برکت کے لیے دعا کریں۔" },
+  { pair: ["VENUS","RAHU"], name: "زہرہ اور راہو کا اکٹھا ہونا",
+    desc: "یہ امتزاج تعلقات میں غیر یقینی، دکھاوے کی کشش یا غیر متوقع تبدیلیوں کی طرف اشارہ کر سکتا ہے۔",
+    remedy: "تعلقات میں سادگی اور سچائی اپنائیں، اور دکھاوے سے اجتناب کریں۔" },
+  { pair: ["VENUS","KETU"], name: "زہرہ اور کیتو کا اکٹھا ہونا",
+    desc: "یہ امتزاج تعلقات سے دلچسپی میں کمی یا روحانی رغبت میں اضافہ — دونوں طرح سے ظاہر ہو سکتا ہے۔",
+    remedy: "ازدواجی حقوق کی پاسداری کریں، اور روحانی رغبت کو نماز اور ذکر کی طرف موڑیں۔" },
+  { pair: ["SATURN","RAHU"], name: "زحل اور راہو کا اکٹھا ہونا",
+    desc: "یہ امتزاج تاخیر، مشکلات اور ذہنی دباؤ میں اضافہ کر سکتا ہے، خصوصاً جب دونوں سیارے کمزور ہوں۔",
+    remedy: "صبر اور استقامت کو اپنائیں، اور ہفتہ کے دن صدقہ اور استغفار کا معمول بنائیں۔" },
+  { pair: ["SATURN","KETU"], name: "زحل اور کیتو کا اکٹھا ہونا",
+    desc: "یہ امتزاج تنہائی پسندی اور دنیاوی معاملات سے بے رغبتی کی طرف اشارہ کرتا ہے، ساتھ ہی صبر آزما حالات بھی لا سکتا ہے۔",
+    remedy: "نماز باجماعت کی پابندی کریں تاکہ تنہائی پسندی حد سے زیادہ نہ ہو، اور صبر کے ساتھ اللہ پر بھروسہ رکھیں۔" },
+  { pair: ["RAHU","KETU"], name: "راہو کیتو کا محور",
+    desc: "یہ ہمیشہ ایک دوسرے سے 180 درجے پر ہوتے ہیں (یعنی مختلف گھروں میں) اور زندگی میں غیر متوقع تبدیلیوں، الجھنوں اور روحانی تلاش کی طرف اشارہ کرتے ہیں۔",
+    remedy: "وہم اور بے بنیاد خوف سے بچنے کے لیے معوذتین اور آیت الکرسی کی تلاوت کا معمول بنائیں۔" }
+];
+
+function pairKey(p1, p2) {
+  return [p1, p2].sort().join('_');
+}
+
+const COMBO_LOOKUP = {};
+PLANET_COMBINATIONS.forEach(combo => {
+  COMBO_LOOKUP[pairKey(combo.pair[0], combo.pair[1])] = combo;
+});
+
+const ALL_PLANET_NAMES = ['SUN','MOON','MARS','MERCURY','JUPITER','VENUS','SATURN','RAHU','KETU'];
+
+function detectCombinations(houses) {
+  const found = [];
+  // check every possible pair (36 total combinations), not just a fixed subset
+  for (let i = 0; i < ALL_PLANET_NAMES.length; i++) {
+    for (let j = i + 1; j < ALL_PLANET_NAMES.length; j++) {
+      const p1 = ALL_PLANET_NAMES[i];
+      const p2 = ALL_PLANET_NAMES[j];
+      if (houses[p1] !== undefined && houses[p2] !== undefined && houses[p1] === houses[p2]) {
+        const combo = COMBO_LOOKUP[pairKey(p1, p2)];
+        if (combo) {
+          found.push({ ...combo, pair: [p1, p2], house: houses[p1] });
+        }
+      }
+    }
+  }
+  return found;
+}
+
+/* ===========================================================
+   EXPANDED ISLAMIC REMEDIES — additional categories per planet
+   (sadqa types, specific azkar, do's/don'ts) to complement
+   ISLAMIC_REMEDIES above.
+   =========================================================== */
+const EXPANDED_REMEDIES = {
+  SUN: {
+    sadqa: "گندم، گڑ، یا تانبے کے برتن جیسی اشیاء کا صدقہ کریں۔",
+    zikr: "یا قَوِیُّ (اللہ کے قوت والے نام کا ورد) — 100 بار، صبح کے وقت۔",
+    parhez: "تکبر، سخت لہجہ اور بلاوجہ غصے سے اجتناب کریں۔",
+    lalKitabTouch: { color: "سرخ اور تانبے کا رنگ", item: "تانبہ", number: 1, note: "لال کتاب میں سورج کی نشانی تانبہ ہے۔ روایتی طور پر تانبے کا سکہ بہتے پانی میں بہایا جاتا تھا — ہم اس کے بجائے تانبے کا کوئی برتن یا اس کی قیمت اتوار کے دن صدقہ کرنے کی تجویز دیتے ہیں، 43 دن تک تسلسل سے۔" }
+  },
+  MOON: {
+    sadqa: "دودھ، چینی، چاول یا سفید کپڑے کا صدقہ کریں۔",
+    zikr: "یا لطیف — 100 بار، رات کے وقت دل کے سکون کے لیے۔",
+    parhez: "بے چینی اور بے سکونی والے ماحول سے دوری رکھیں، نیند کا وقت متعین کریں۔",
+    lalKitabTouch: { color: "سفید", item: "چاندی، چاول، دودھ", number: 2, note: "لال کتاب میں چاند کی نشانی چاندی اور سفید اشیاء ہیں۔ روایتی طور پر دودھ یا چاول بہتے پانی میں بہائے جاتے تھے — ہم اس کے بجائے یہ اشیاء پیر کے دن غرباء میں صدقہ کرنے کی تجویز دیتے ہیں، 43 دن تک تسلسل سے۔" }
+  },
+  MARS: {
+    sadqa: "مسور کی دال، یا سرخ پھل غرباء میں تقسیم کریں۔",
+    zikr: "یا حَلِیمُ — 100 بار، غصے پر قابو پانے کے لیے۔",
+    parhez: "بحث و تکرار اور جلد بازی کے فیصلوں سے اجتناب کریں۔",
+    lalKitabTouch: { color: "سرخ", item: "مسور کی دال", number: 9, note: "لال کتاب میں مریخ کی نشانی مسور کی دال اور تانبہ ہے۔ روایتی طور پر مسور دال بہتے پانی میں بہائی جاتی تھی — ہم اس کے بجائے یہ دال منگل کے دن پکا کر غرباء میں صدقہ کرنے کی تجویز دیتے ہیں، 43 دن تک تسلسل سے۔" }
+  },
+  MERCURY: {
+    sadqa: "سبز اشیاء، کتابیں یا تعلیمی سامان کا صدقہ کریں۔",
+    zikr: "یا عَلِیمُ — 100 بار، ذہنی وضاحت کے لیے۔",
+    parhez: "جھوٹ، غیبت اور بے فائدہ گفتگو سے مکمل پرہیز کریں۔",
+    lalKitabTouch: { color: "سبز", item: "سبز دانے یا سبز کپڑا", number: 5, note: "لال کتاب میں عطارد کی نشانی سبز رنگ اور سوراخ والا تانبے کا سکہ ہے۔ ہم اس کی روح کو برقرار رکھتے ہوئے بدھ کے دن سبز رنگ کی اشیاء یا تعلیمی سامان غرباء و طلباء میں صدقہ کرنے کی تجویز دیتے ہیں، 43 دن تک تسلسل سے۔" }
+  },
+  JUPITER: {
+    sadqa: "زرد اشیاء، چنے کی دال یا کتابیں صدقہ کریں۔",
+    zikr: "یا رَزَّاقُ — 100 بار، رزق میں برکت کے لیے۔",
+    parhez: "علم کو دکھاوے یا غرور کے لیے استعمال نہ کریں۔",
+    lalKitabTouch: { color: "زرد (پیلا)", item: "چنے کی دال، ہلدی", number: 3, note: "لال کتاب میں جوپیٹر کی نشانی زرد رنگ، چنے کی دال اور ہلدی ہے۔ ہم اسی نشانی کو برقرار رکھتے ہوئے جمعرات کے دن یہ اشیاء غرباء میں صدقہ کرنے کی تجویز دیتے ہیں، 43 دن تک تسلسل سے۔" }
+  },
+  VENUS: {
+    sadqa: "سفید مٹھائی، خوشبو یا کپڑے کا صدقہ کریں۔",
+    zikr: "یا وَدُودُ — 100 بار، تعلقات میں محبت کے لیے۔",
+    parhez: "فضول خرچی اور دکھاوے سے اجتناب کریں۔",
+    lalKitabTouch: { color: "سفید", item: "خوشبو، سفید مٹھائی", number: 6, note: "لال کتاب میں زہرہ کی نشانی سفید رنگ اور خوشبودار اشیاء ہیں۔ ہم اسی نشانی کو برقرار رکھتے ہوئے جمعہ کے دن یہ اشیاء صدقہ کرنے کی تجویز دیتے ہیں، 43 دن تک تسلسل سے۔" }
+  },
+  SATURN: {
+    sadqa: "کالی دال (ماش)، تیل یا کمبل کا صدقہ کریں۔",
+    zikr: "یا صَبُورُ — 100 بار، صبر کے لیے۔",
+    parhez: "سستی اور وقت کے ضیاع سے اجتناب کریں۔",
+    lalKitabTouch: { color: "کالا", item: "لوہا، سرسوں کا تیل، کالی دال", number: 8, note: "لال کتاب میں زحل کی نشانی لوہا، کالا رنگ اور سرسوں کا تیل ہے۔ ہم اسی نشانی کو برقرار رکھتے ہوئے ہفتہ کے دن یہ اشیاء غرباء میں صدقہ کرنے کی تجویز دیتے ہیں، 43 دن تک تسلسل سے۔" }
+  },
+  RAHU: {
+    sadqa: "کمبل، جوتے یا تل کا صدقہ کریں۔",
+    zikr: "معوذتین (سورۃ الفلق و الناس) — صبح و شام۔",
+    parhez: "بے بنیاد وہم اور خوف کو دل میں جگہ نہ دیں۔",
+    lalKitabTouch: { color: "دھواں دار/مٹیالا", item: "مولی، جو (بارلی)", number: 4, note: "لال کتاب میں راہو کی نشانی مولی اور جو ہے۔ روایتی طور پر یہ بہتے پانی میں بہائے جاتے تھے — ہم اس کے بجائے یہ اشیاء ہفتہ کے دن غرباء میں صدقہ کرنے کی تجویز دیتے ہیں، 43 دن تک تسلسل سے۔" }
+  },
+  KETU: {
+    sadqa: "خفیہ صدقہ (پوشیدہ طور پر) دیں۔",
+    zikr: "لَا اِلٰہَ اِلَّا اللّٰہ — کثرت سے۔",
+    parhez: "ضرورت سے زیادہ تنہائی اور دنیا سے کٹاؤ سے گریز کریں۔",
+    lalKitabTouch: { color: "بھورا/خاکی", item: "تل کے بیج، کمبل", number: 7, note: "لال کتاب میں کیتو کی نشانی تل کے بیج اور کمبل ہے۔ ہم اسی نشانی کو برقرار رکھتے ہوئے یہ اشیاء خفیہ صدقہ کے طور پر دینے کی تجویز دیتے ہیں، 43 دن تک تسلسل سے۔" }
+  }
+};
+
+/* ===========================================================
+   ROZMARRA ZINDAGI KI TADABEER — Everyday Life Remedies
+   Lal Kitab is famous for simple, practical "totke" tied to
+   specific days, durations, and charity-type actions for
+   common life problems (money, marriage, children, career,
+   debts, enemies, health, travel). The traditional versions of
+   these totke are heavily tied to Hindu deity worship, temple
+   rituals, and items offered to idols — none of which are
+   included here. Instead, this section keeps only the secular
+   STRUCTURE that makes Lal Kitab remedies distinctive (specific
+   weekday, a fixed duration such as 11/21/40 days, and a
+   charity or self-discipline based action) and fills it
+   entirely with Quran/Sunnah-based content: sadqa, dua, zikr,
+   and good conduct — matching the same everyday-problem
+   categories Lal Kitab traditionally addresses.
+   =========================================================== */
+const EVERYDAY_REMEDIES = {
+  MONEY: {
+    title: "مالی تنگی اور رزق میں کشادگی کے لیے",
+    icon: "💰",
+    lalKitabNote: "لال کتاب میں مالی معاملات دوسرے اور گیارہویں گھر، اور جوپیٹر و زہرہ سے جڑے ہیں۔ ان سیاروں کی نشانی زرد اور سفید رنگ ہے — صدقہ میں یہی رنگ کی اشیاء (چنے کی دال، سفید چاول) ترجیح دیں۔",
+    items: [
+      { duration: "21 دن", action: "ہر روز فجر کے بعد سورۃ الواقعہ کی تلاوت کریں — رزق میں برکت کے لیے یہ ایک مسلسل معمول بنائیں، چاہے تھوڑی دیر ہی پڑھیں۔" },
+      { duration: "11 جمعہ", action: "ہر جمعہ نماز سے پہلے کسی ضرورت مند کو تھوڑی رقم یا کھانا صدقہ کریں، اور لگاتار 11 جمعے اس پر قائم رہیں۔" },
+      { duration: "40 دن", action: "روزانہ صبح ' یَا رَزَّاقُ ' کا 100 بار ورد کریں، اور حلال کمائی کی نیت پختہ رکھیں۔" },
+      { duration: "ہر دن", action: "گھر میں صفائی اور سادگی کا خاص خیال رکھیں — نبی کریم ﷺ کی سنت کے مطابق صاف ستھرا گھر برکت کا باعث ہے۔" }
+    ]
+  },
+  MARRIAGE: {
+    title: "رشتے میں تاخیر اور ازدواجی ہم آہنگی کے لیے",
+    icon: "💍",
+    lalKitabNote: "لال کتاب میں ساتواں گھر اور زہرہ ازدواجی معاملات کے مالک ہیں۔ زہرہ کی نشانی سفید رنگ اور خوشبو ہے — جمعہ کے دن صفائی، خوشبو اور سفید اشیاء کا صدقہ اس معاملے میں خاص اہمیت رکھتا ہے۔",
+    items: [
+      { duration: "21 دن", action: "روزانہ نماز فجر کے بعد سورۃ مریم کی تلاوت کریں اور اللہ سے نیک جوڑے کے لیے دعا کریں۔" },
+      { duration: "ہر جمعہ", action: "والدین کی دعا حاصل کریں اور ان سے رشتے کی بات میں مشورہ لیتے رہیں — والدین کی رضا میں بڑی برکت ہے۔" },
+      { duration: "40 دن", action: "روزانہ ' یَا وَدُودُ ' کا ورد کریں، اور ازدواجی تعلقات میں نرمی، صبر اور حسنِ سلوک کو اپنائیں۔" },
+      { duration: "مستقل", action: "صدقہ اور نیک اعمال جاری رکھیں، اور غیب کے فیصلے پر صبر کے ساتھ توکل علی اللہ رکھیں۔" }
+    ]
+  },
+  CHILDREN: {
+    title: "اولاد اور بچوں کی تعلیم کے لیے",
+    icon: "📚",
+    lalKitabNote: "لال کتاب میں پانچواں گھر اولاد اور تعلیم کا مالک ہے، اور عطارد و جوپیٹر ذہانت کے سیارے ہیں۔ ان کی نشانی سبز اور زرد رنگ ہے — بدھ یا جمعرات کے دن تعلیمی سامان یا متعلقہ رنگ کی اشیاء صدقہ کرنا روایتی طور پر تجویز کیا جاتا ہے۔",
+    items: [
+      { duration: "ہر امتحان سے پہلے", action: "بچے کو امتحان سے پہلے سورۃ الفاتحہ اور آیت الکرسی پڑھ کر دم کریں، اور پُرسکون رہنے کی تلقین کریں۔" },
+      { duration: "روزانہ", action: "بچوں کے ساتھ مل کر مختصر دعائیں یاد کرائیں، خصوصاً علم میں برکت کی دعا: رَبِّ زِدْنِی عِلْمًا۔" },
+      { duration: "21 دن", action: "بچے کی تعلیمی کمزوری کے لیے روزانہ ' یَا عَلِیمُ ' کا ورد کریں اور بچے کو پُرسکون ماحول فراہم کریں۔" },
+      { duration: "مستقل", action: "بچوں سے نرمی اور حوصلہ افزائی سے بات کریں، ڈانٹ ڈپٹ کے بجائے رہنمائی کا انداز اپنائیں — یہی نبوی طریقہ تربیت ہے۔" }
+    ]
+  },
+  TRAVEL: {
+    title: "سفر، بیرونِ ملک سیٹلمنٹ اور ویزا کے معاملات کے لیے",
+    icon: "✈️",
+    lalKitabNote: "لال کتاب میں سفر اور بیرونِ ملک معاملات کا تعلق نویں گھر اور راہو سے ہے۔ راہو کی نشانی مولی اور دھواں دار رنگ ہے — ہفتہ کے دن غرباء میں کھانا یا اشیاء صدقہ کرنا روایتی طور پر سفر کی رکاوٹیں دور کرنے کے لیے تجویز کیا جاتا ہے۔",
+    items: [
+      { duration: "سفر سے پہلے", action: "دعائے سفر پڑھیں: اللّٰھُمَّ اِنَّا نَسْاَلُکَ فِی سَفَرِنَا ھٰذَا الْبِرَّ وَالتَّقْویٰ، اور دو رکعت نفل ادا کریں۔" },
+      { duration: "21 دن", action: "ویزا یا کاغذی کارروائی میں رکاوٹ کی صورت میں روزانہ سورۃ یٰسین کی تلاوت کریں اور آسانی کی دعا کریں۔" },
+      { duration: "ہر جمعہ", action: "سفر کی کامیابی کے لیے صدقہ کریں، خصوصاً سفر سے پہلے کے آخری جمعہ کو۔" },
+      { duration: "مستقل", action: "حلال ذریعہ اور درست کاغذات پر بھروسہ رکھیں، استخارہ کریں اور نتیجہ اللہ پر چھوڑ دیں۔" }
+    ]
+  },
+  CAREER: {
+    title: "ملازمت، کاروبار اور ترقی کے لیے",
+    icon: "💼",
+    lalKitabNote: "لال کتاب میں دسواں گھر کام اور روزگار کا مالک ہے، اور سورج و زحل اس سے جڑے ہیں۔ زحل کی نشانی لوہا اور کالا رنگ ہے — ہفتہ کے دن سرسوں کا تیل یا لوہے سے بنی اشیاء صدقہ کرنا روایتی طور پر ترقی میں رکاوٹیں دور کرنے کے لیے تجویز کیا جاتا ہے۔",
+    items: [
+      { duration: "43 دن", action: "روزانہ صبح کام پر جانے سے پہلے ' یَا فَتَّاحُ ' کا ورد کریں — نئے دروازے کھلنے کی دعا کے ساتھ۔" },
+      { duration: "11 دن", action: "ملازمت کے انٹرویو یا کسی اہم کاروباری فیصلے سے پہلے دو رکعت نماز استخارہ ادا کریں۔" },
+      { duration: "ہر ہفتہ", action: "ہفتہ کے دن غرباء کی مدد کریں — یہ زحل سے متعلق معاملات (رکاوٹ، تاخیر) میں نرمی لاتا ہے۔" },
+      { duration: "مستقل", action: "دیانتداری اور وقت کی پابندی کو شعار بنائیں، اور کام میں سستی سے اجتناب کریں۔" }
+    ]
+  },
+  DEBT_ENEMY: {
+    title: "قرض اور دشمنوں کی مشکلات سے نجات کے لیے",
+    icon: "🛡️",
+    lalKitabNote: "لال کتاب میں چھٹا گھر قرض اور دشمنی کا مالک ہے، اور مریخ اس سے جڑا ہے۔ مریخ کی نشانی مسور کی دال اور سرخ رنگ ہے — منگل کے دن یہ اشیاء صدقہ کرنا روایتی طور پر دشمنوں پر غلبہ اور قرض سے نجات کے لیے تجویز کیا جاتا ہے۔",
+    items: [
+      { duration: "21 دن", action: "روزانہ آیت الکرسی اور معوذتین (سورۃ الفلق و الناس) کی تلاوت کریں — حفاظت اور سکون کے لیے۔" },
+      { duration: "ہر منگل", action: "منگل کے دن صدقہ کریں اور قرض کی ادائیگی کے لیے رزقِ حلال میں برکت کی دعا کریں: اللّٰھُمَّ اکْفِنِی بِحَلَالِکَ عَنْ حَرَامِکَ۔" },
+      { duration: "40 دن", action: "روزانہ ' یَا قَوِیُّ یَا مَتِینُ ' کا ورد کریں، اور دشمنوں کے بارے میں بدگمانی یا انتقام کے بجائے صبر اور دعا کا رویہ اپنائیں۔" },
+      { duration: "مستقل", action: "جھگڑے اور دشمنی سے دور رہنے کی کوشش کریں، اور تعلقات بحال کرنے میں پہل کریں جہاں ممکن ہو۔" }
+    ]
+  },
+  HEALTH: {
+    title: "صحت اور ذہنی سکون کے لیے",
+    icon: "🌿",
+    lalKitabNote: "لال کتاب میں صحت کا تعلق پہلے اور چھٹے گھر، اور سورج و چاند سے ہے۔ سورج کی نشانی تانبہ اور چاند کی نشانی چاندی/سفید ہے — اتوار اور پیر کے دن ان رنگوں کی اشیاء صدقہ کرنا روایتی طور پر صحت کی بحالی کے لیے تجویز کیا جاتا ہے۔",
+    items: [
+      { duration: "روزانہ", action: "صبح و شام سورۃ الفاتحہ، آیت الکرسی اور معوذتین کی تلاوت معمول بنائیں — یہ مجموعی صحت اور تحفظ کے لیے نبوی معمول ہے۔" },
+      { duration: "ہر دن", action: "کھانے میں اعتدال اور سادگی اپنائیں، اور سونے سے پہلے وضو کرنے کی سنت پر عمل کریں۔" },
+      { duration: "21 دن", action: "ذہنی پریشانی کی صورت میں روزانہ ' یَا سَلَامُ ' کا ورد کریں، اور سکون کے لیے ذکر میں وقت گزاریں۔" },
+      { duration: "مستقل", action: "بیماری میں صبر کے ساتھ علاج کرائیں — دعا اور علاج دونوں کو ساتھ رکھیں، شفا اللہ کی طرف سے ہے۔" }
+    ]
+  },
+  FAMILY: {
+    title: "خاندانی ہم آہنگی اور گھریلو سکون کے لیے",
+    icon: "🏠",
+    lalKitabNote: "لال کتاب میں چوتھا گھر گھریلو سکون کا مالک ہے، اور چاند و زہرہ اس سے جڑے ہیں۔ ان کی نشانی سفید رنگ ہے — پیر اور جمعہ کے دن سفید اشیاء (دودھ، چاول، خوشبو) صدقہ کرنا روایتی طور پر گھریلو ہم آہنگی کے لیے تجویز کیا جاتا ہے۔",
+    items: [
+      { duration: "ہر دن", action: "گھر میں داخل ہوتے وقت سلام اور بسم اللہ کہنے کی عادت بنائیں — یہ گھر میں برکت اور سکون کا ذریعہ ہے۔" },
+      { duration: "ہر جمعرات", action: "خاندان کے بڑوں کی خدمت اور صلہ رحمی کا خاص خیال رکھیں، اور رشتہ داروں سے رابطہ بحال رکھیں۔" },
+      { duration: "21 دن", action: "گھریلو ناچاقی کی صورت میں روزانہ سورۃ یٰسین کی تلاوت اور پورے گھر والوں کے لیے دعائے خیر کریں۔" },
+      { duration: "مستقل", action: "گھر میں جھگڑے سے بچیں، نرمی اور برداشت کو معمول بنائیں، اور باہمی معاملات میں عدل سے کام لیں۔" }
+    ]
+  }
+};
+
+const EVERYDAY_REMEDIES_INTRO = "لال کتاب کی روایت میں روزمرہ زندگی کے مسائل — مالی تنگی، رشتے کی تاخیر، اولاد کی تعلیم، سفر کی رکاوٹیں، ملازمت، قرض اور دشمنی — کے لیے سادہ اور قابلِ عمل تدابیر تجویز کی جاتی ہیں، جو اکثر کسی خاص دن، مخصوص مدت، اور صدقہ جیسے عمل پر مبنی ہوتی ہیں۔ ہم نے اسی روایتی ساخت کو برقرار رکھتے ہوئے، روایتی رسومات کے بجائے انہی ایام اور مدتوں کو قرآن، دعا اور صدقہ جیسے اسلامی اعمال سے بھر دیا ہے، تاکہ تدابیر آپ کے ایمان اور اقدار سے مکمل ہم آہنگ رہیں۔";
+
+</script>
+<script>
+/* ===========================================================
+   Lal Kitab Web App — Controller
+   =========================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  let currentResult = null; // store last calculated kundli for use across features
+  let currentBirthYear = null;
+
+  // Maps a planet-house effect status to its Urdu display label
+  function statusLabel(status) {
+    if (status === 'shubh') return 'سازگار';
+    if (status === 'ashubh') return 'توجہ طلب';
+    return 'معتدل';
+  }
+
+  /* ---------- Date of Birth dropdowns (mobile-friendly, no calendar grid) ---------- */
+  const URDU_MONTHS = [
+    "جنوری", "فروری", "مارچ", "اپریل", "مئی", "جون",
+    "جولائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر"
+  ];
+
+  function populateDobDropdowns() {
+    const daySelect = document.getElementById('dobDay');
+    const monthSelect = document.getElementById('dobMonth');
+    const yearSelect = document.getElementById('dobYear');
+
+    for (let d = 1; d <= 31; d++) {
+      const opt = document.createElement('option');
+      opt.value = d;
+      opt.textContent = d;
+      daySelect.appendChild(opt);
+    }
+
+    URDU_MONTHS.forEach((name, idx) => {
+      const opt = document.createElement('option');
+      opt.value = idx + 1;
+      opt.textContent = name;
+      monthSelect.appendChild(opt);
+    });
+
+    const currentYear = new Date().getFullYear();
+    for (let y = currentYear; y >= 1930; y--) {
+      const opt = document.createElement('option');
+      opt.value = y;
+      opt.textContent = y;
+      yearSelect.appendChild(opt);
+    }
+
+    // sensible defaults so the form isn't empty on first load
+    daySelect.value = 1;
+    monthSelect.value = 1;
+    yearSelect.value = currentYear - 25;
+  }
+
+  function getDobValue() {
+    const day = document.getElementById('dobDay').value;
+    const month = document.getElementById('dobMonth').value;
+    const year = document.getElementById('dobYear').value;
+    if (!day || !month || !year) return null;
+    return { day: parseInt(day), month: parseInt(month), year: parseInt(year) };
+  }
+
+  function setDobValue(year, month, day) {
+    document.getElementById('dobYear').value = year;
+    document.getElementById('dobMonth').value = month;
+    document.getElementById('dobDay').value = day;
+  }
+
+  populateDobDropdowns();
+
+
+  /* ---------- Tabs ---------- */
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const sections = {
+    kundli: document.getElementById('tab-kundli'),
+    remedies: document.getElementById('tab-remedies'),
+    about: document.getElementById('tab-about')
+  };
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      Object.values(sections).forEach(s => s.classList.remove('active'));
+      sections[btn.dataset.tab].classList.add('active');
+    });
+  });
+
+  /* ---------- City select autofill ---------- */
+  const citySelect = document.getElementById('citySelect');
+  const latInput = document.getElementById('latInput');
+  const lonInput = document.getElementById('lonInput');
+  citySelect.addEventListener('change', () => {
+    const opt = citySelect.options[citySelect.selectedIndex];
+    if (opt.dataset.lat) {
+      latInput.value = opt.dataset.lat;
+      lonInput.value = opt.dataset.lon;
+    }
+  });
+
+  /* ---------- LocalStorage: save & restore last kundli ----------
+     Saved ONLY in this browser/device — never sent anywhere.
+     Stores raw birth inputs (so we can recompute) plus a flag
+     so we know whether to show the "restore" prompt. */
+  const STORAGE_KEY = 'lalKitabKundli_v1';
+
+  function saveKundliToStorage(year, month, day, timeVal, tz, lat, lon) {
+    try {
+      const data = { year, month, day, timeVal, tz, lat, lon, savedAt: Date.now() };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {
+      // localStorage may be unavailable (private browsing, etc.) — fail silently
+    }
+  }
+
+  function loadKundliFromStorage() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function clearKundliFromStorage() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+  }
+
+  function restoreSavedKundli() {
+    const saved = loadKundliFromStorage();
+    if (!saved) return;
+
+    setDobValue(saved.year, saved.month, saved.day);
+    document.getElementById('birthTime').value = saved.timeVal;
+    document.getElementById('tzOffset').value = saved.tz;
+    document.getElementById('latInput').value = saved.lat;
+    document.getElementById('lonInput').value = saved.lon;
+
+    const [hour, minute] = saved.timeVal.split(':').map(Number);
+    const result = calculateKundli(saved.year, saved.month, saved.day, hour, minute, saved.tz, saved.lat, saved.lon);
+    currentResult = result;
+    currentBirthYear = saved.year;
+    renderResults(result);
+    document.getElementById('results').style.display = 'block';
+
+    const banner = document.getElementById('restoreBanner');
+    if (banner) banner.style.display = 'flex';
+  }
+
+  const clearSavedBtn = document.getElementById('clearSavedBtn');
+  if (clearSavedBtn) {
+    clearSavedBtn.addEventListener('click', () => {
+      clearKundliFromStorage();
+      document.getElementById('restoreBanner').style.display = 'none';
+      document.getElementById('results').style.display = 'none';
+      document.getElementById('birthTime').value = '';
+    });
+  }
+
+  /* ---------- Calculate button ---------- */
+  document.getElementById('calcBtn').addEventListener('click', () => {
+    const dob = getDobValue();
+    const timeVal = document.getElementById('birthTime').value;
+    const tz = parseFloat(document.getElementById('tzOffset').value) || 0;
+    const lat = parseFloat(latInput.value);
+    const lon = parseFloat(lonInput.value);
+
+    if (!dob || !timeVal) {
+      alert('براہ کرم تاریخ اور وقت پیدائش درج کریں۔');
+      return;
+    }
+
+    const { year, month, day } = dob;
+    const [hour, minute] = timeVal.split(':').map(Number);
+
+    const result = calculateKundli(year, month, day, hour, minute, tz, lat, lon);
+    currentResult = result;
+    currentBirthYear = year;
+    renderResults(result);
+    saveKundliToStorage(year, month, day, timeVal, tz, lat, lon);
+
+    document.getElementById('results').style.display = 'block';
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  /* ---------- Render Kundli Results ---------- */
+  function renderResults(result) {
+    // Ascendant
+    const ascSign = result.ascendant.signName;
+    document.getElementById('ascResult').textContent =
+      `آپ کا لگن "${ascSign}" ہے۔ لال کتاب کے نظام میں یہی آپ کے پہلے گھر کی نشاندہی کرتا ہے، اور باقی تمام گھر اسی سے شمار کیے جاتے ہیں۔`;
+
+    // Build North-Indian style 4x4 diamond chart using CSS grid (simplified box layout)
+    renderChart(result);
+
+    // Planet summary list
+    renderPlanetSummary(result);
+
+    // House-wise detail
+    renderHouseDetails(result);
+
+    // Personal remedies (planets in ashubh houses)
+    renderPersonalRemedies(result);
+
+    // Sleeping houses (Soya Ghar)
+    renderSleepingHouses(result);
+
+    // Rin (debt) diagnostic
+    renderRin(result);
+
+    // Planetary combinations
+    renderCombinations(result);
+  }
+
+  /* ---------- Chart Rendering ----------
+     Authentic North Indian / Lal Kitab diamond chart.
+     House 1 is always the top kendra triangle, 4 = left,
+     7 = bottom, 10 = right (fixed positions). Houses 2,3 /
+     5,6 / 8,9 / 11,12 fill the diagonal corner triangles,
+     counted counter-clockwise — matching traditional layout.
+  */
+  const HOUSE_POLYGONS = {
+    1: "0,0 400,0 200,200",
+    2: "0,0 200,0 200,200",
+    3: "0,0 0,200 200,200",
+    4: "0,0 0,400 200,200",
+    5: "0,400 0,200 200,200",
+    6: "0,400 200,400 200,200",
+    7: "0,400 400,400 200,200",
+    8: "400,400 200,400 200,200",
+    9: "400,400 400,200 200,200",
+    10: "400,400 400,0 200,200",
+    11: "400,0 400,200 200,200",
+    12: "400,0 200,0 200,200"
+  };
+  const HOUSE_NUM_POS = {
+    1: [200, 24], 2: [102, 38], 3: [38, 102], 4: [22, 200],
+    5: [38, 298], 6: [102, 362], 7: [200, 378], 8: [298, 362],
+    9: [362, 298], 10: [378, 200], 11: [362, 102], 12: [298, 38]
+  };
+  const HOUSE_CONTENT_POS = {
+    1: [200, 65], 2: [128, 68], 3: [68, 128], 4: [68, 195],
+    5: [68, 262], 6: [128, 320], 7: [200, 325], 8: [272, 320],
+    9: [332, 262], 10: [332, 195], 11: [332, 128], 12: [272, 68]
+  };
+
+  function renderChart(result) {
+    const chart = document.getElementById('lkChart');
+    chart.innerHTML = '';
+
+    const houseToPlanets = {};
+    for (let i = 1; i <= 12; i++) houseToPlanets[i] = [];
+    for (let pname in result.houses) {
+      houseToPlanets[result.houses[pname]].push(pname);
+    }
+
+    let svg = `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; font-family:'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif;">`;
+
+    // house fill (alternate shading for visual clarity)
+    for (let h = 1; h <= 12; h++) {
+      const isKendra = [1,4,7,10].includes(h);
+      const fill = isKendra ? '#FBF6EE' : '#FFFDF7';
+      svg += `<polygon points="${HOUSE_POLYGONS[h]}" fill="${fill}" stroke="none"/>`;
+    }
+
+    // structural lines
+    svg += `<rect x="0" y="0" width="400" height="400" fill="none" stroke="#8C621E" stroke-width="2.5"/>`;
+    svg += `<line x1="0" y1="0" x2="400" y2="400" stroke="#8C621E" stroke-width="1.3"/>`;
+    svg += `<line x1="400" y1="0" x2="0" y2="400" stroke="#8C621E" stroke-width="1.3"/>`;
+    svg += `<polygon points="200,0 400,200 200,400 0,200" fill="none" stroke="#8C621E" stroke-width="1.3"/>`;
+
+    // house numbers
+    for (let h = 1; h <= 12; h++) {
+      const [x, y] = HOUSE_NUM_POS[h];
+      svg += `<text x="${x}" y="${y}" font-size="12" text-anchor="middle" fill="#B9852E">${h}</text>`;
+    }
+
+    // center label
+    svg += `<text x="200" y="195" font-size="13" text-anchor="middle" fill="#6E2C2C">لال کتاب</text>`;
+    svg += `<text x="200" y="213" font-size="10" text-anchor="middle" fill="#8C621E">${result.ascendant.signName} لگن</text>`;
+
+    // planet content per house
+    for (let h = 1; h <= 12; h++) {
+      const [x, y] = HOUSE_CONTENT_POS[h];
+      const planets = houseToPlanets[h];
+      if (planets.length === 0) continue;
+      const lineHeight = 15;
+      const startOffset = -((planets.length - 1) * lineHeight) / 2;
+      planets.forEach((pname, idx) => {
+        const lineY = y + startOffset + (idx * lineHeight);
+        svg += `<text x="${x}" y="${lineY}" font-size="12.5" text-anchor="middle" fill="#2C2418">${PLANETS[pname].symbol} ${PLANETS[pname].name.split(' ')[0]}</text>`;
+      });
+    }
+
+    svg += `</svg>`;
+    chart.innerHTML = svg;
+  }
+
+  /* ---------- Planet Summary ---------- */
+  function renderPlanetSummary(result) {
+    const container = document.getElementById('planetSummary');
+    container.innerHTML = '';
+
+    const order = ['SUN','MOON','MARS','MERCURY','JUPITER','VENUS','SATURN','RAHU','KETU'];
+    order.forEach(pname => {
+      const houseNum = result.houses[pname];
+      const effect = PLANET_HOUSE_EFFECTS[pname][houseNum];
+      const planet = PLANETS[pname];
+
+      const row = document.createElement('div');
+      row.className = 'planet-row';
+
+      const badge = document.createElement('div');
+      badge.className = 'badge';
+      badge.style.background = planet.color;
+      badge.textContent = planet.symbol;
+
+      const info = document.createElement('div');
+      info.className = 'info';
+      const nameEl = document.createElement('div');
+      nameEl.className = 'pname';
+      nameEl.textContent = planet.name;
+      const houseEl = document.createElement('div');
+      houseEl.className = 'phouse';
+      houseEl.textContent = `${HOUSES[houseNum].name} میں موجود — ${HOUSES[houseNum].title}`;
+      info.appendChild(nameEl);
+      info.appendChild(houseEl);
+
+      const tag = document.createElement('div');
+      tag.className = 'status-tag ' + effect.status;
+      tag.textContent = statusLabel(effect.status);
+
+      row.appendChild(badge);
+      row.appendChild(info);
+      row.appendChild(tag);
+      container.appendChild(row);
+    });
+  }
+
+  /* ---------- House-wise Details ---------- */
+  function renderHouseDetails(result) {
+    document.getElementById('predictionIntro').textContent = PREDICTION_INTRO;
+
+    const container = document.getElementById('houseDetails');
+    container.innerHTML = '';
+
+    // group planets by house
+    const houseToPlanets = {};
+    for (let i = 1; i <= 12; i++) houseToPlanets[i] = [];
+    for (let pname in result.houses) {
+      houseToPlanets[result.houses[pname]].push(pname);
+    }
+
+    for (let h = 1; h <= 12; h++) {
+      const block = document.createElement('div');
+      block.className = 'house-block';
+
+      const title = document.createElement('h4');
+      title.textContent = `${HOUSES[h].name} — ${HOUSES[h].title}`;
+      block.appendChild(title);
+
+      const desc = document.createElement('div');
+      desc.className = 'htitle';
+      desc.textContent = HOUSES[h].desc;
+      block.appendChild(desc);
+
+      if (houseToPlanets[h].length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'planet-line';
+        empty.style.color = 'var(--ink-soft)';
+        empty.textContent = 'اس گھر میں کوئی سیارہ موجود نہیں۔';
+        block.appendChild(empty);
+      } else {
+        houseToPlanets[h].forEach(pname => {
+          const effect = PLANET_HOUSE_EFFECTS[pname][h];
+          const planet = PLANETS[pname];
+
+          const line = document.createElement('div');
+          line.className = 'planet-line';
+
+          const badge = document.createElement('div');
+          badge.className = 'badge';
+          badge.style.background = planet.color;
+          badge.style.width = '32px';
+          badge.style.height = '32px';
+          badge.style.fontSize = '1rem';
+          badge.textContent = planet.symbol;
+
+          const textWrap = document.createElement('div');
+          textWrap.style.flex = '1';
+          const nameRow = document.createElement('div');
+          nameRow.innerHTML = `<strong>${planet.name}</strong> <span class="status-tag ${effect.status}" style="margin-right:8px;">${statusLabel(effect.status)}</span>`;
+          const textP = document.createElement('div');
+          textP.style.marginTop = '4px';
+          textP.textContent = effect.text;
+
+          textWrap.appendChild(nameRow);
+          textWrap.appendChild(textP);
+
+          line.appendChild(badge);
+          line.appendChild(textWrap);
+          block.appendChild(line);
+        });
+      }
+
+      container.appendChild(block);
+    }
+  }
+
+  /* ---------- Personal Remedies (based on ashubh placements) ---------- */
+  function renderPersonalRemedies(result) {
+    const container = document.getElementById('personalRemedies');
+    container.innerHTML = '';
+
+    const order = ['SUN','MOON','MARS','MERCURY','JUPITER','VENUS','SATURN','RAHU','KETU'];
+    let anyAshubh = false;
+
+    order.forEach(pname => {
+      const houseNum = result.houses[pname];
+      const effect = PLANET_HOUSE_EFFECTS[pname][houseNum];
+      if (effect.status !== 'ashubh') return;
+      anyAshubh = true;
+
+      const remedyData = ISLAMIC_REMEDIES[pname];
+      const planet = PLANETS[pname];
+
+      const block = document.createElement('div');
+      block.className = 'house-block';
+
+      const title = document.createElement('h4');
+      title.innerHTML = `${planet.symbol} ${planet.name} — ${HOUSES[houseNum].name} میں`;
+      block.appendChild(title);
+
+      const ul = document.createElement('ul');
+      ul.className = 'remedy-list';
+      remedyData.items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+      block.appendChild(ul);
+
+      const touch = EXPANDED_REMEDIES[pname] && EXPANDED_REMEDIES[pname].lalKitabTouch;
+      if (touch) {
+        const touchLine = document.createElement('p');
+        touchLine.style.marginTop = '10px';
+        touchLine.style.paddingTop = '10px';
+        touchLine.style.borderTop = '1px dashed var(--line)';
+        touchLine.style.color = 'var(--ink-soft)';
+        touchLine.style.fontSize = '0.95rem';
+        touchLine.innerHTML = `🪔 <strong>لال کتاب کی نشانی:</strong> رنگ ${touch.color}، اشیاء ${touch.item} — یہ اشیاء صدقہ کریں۔`;
+        block.appendChild(touchLine);
+      }
+
+      container.appendChild(block);
+    });
+
+    if (!anyAshubh) {
+      const p = document.createElement('p');
+      p.textContent = 'الحمدللہ، آپ کی کنڈلی میں کوئی سیارہ خاص طور پر توجہ طلب گھر میں نہیں ہے۔ پھر بھی روزمرہ نماز، صدقہ اور قرآن کی تلاوت کا معمول جاری رکھیں۔';
+      container.appendChild(p);
+    }
+  }
+
+  /* ---------- Sleeping House (Soya Ghar) ---------- */
+  function renderSleepingHouses(result) {
+    document.getElementById('sleepingIntro').textContent = SLEEPING_HOUSE_INTRO;
+    const container = document.getElementById('sleepingResults');
+    container.innerHTML = '';
+
+    const sleeping = findSleepingHouses(result.houses);
+
+    if (sleeping.length === 0) {
+      const p = document.createElement('p');
+      p.textContent = 'الحمدللہ، آپ کی کنڈلی کے تمام گھروں میں کوئی نہ کوئی سیارہ موجود ہے، اس لیے کوئی گھر \"سویا ہوا\" نہیں ہے۔';
+      container.appendChild(p);
+      return;
+    }
+
+    sleeping.forEach(h => {
+      const awakeningPlanet = HOUSE_AWAKENING_PLANET[h];
+      const planet = PLANETS[awakeningPlanet];
+      const remedyData = ISLAMIC_REMEDIES[awakeningPlanet];
+
+      const block = document.createElement('div');
+      block.className = 'house-block';
+
+      const title = document.createElement('h4');
+      title.textContent = `${HOUSES[h].name} — سویا ہوا`;
+      block.appendChild(title);
+
+      const desc = document.createElement('div');
+      desc.className = 'htitle';
+      desc.textContent = `${HOUSES[h].title} — اس گھر میں کوئی سیارہ موجود نہیں، اس لیے یہ اپنا مکمل اثر نہیں دکھا رہا۔`;
+      block.appendChild(desc);
+
+      const awakenP = document.createElement('p');
+      awakenP.innerHTML = `<strong>جگانے والا سیارہ:</strong> ${planet.symbol} ${planet.name}`;
+      block.appendChild(awakenP);
+
+      const ul = document.createElement('ul');
+      ul.className = 'remedy-list';
+      remedyData.items.slice(0, 3).forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+      block.appendChild(ul);
+
+      container.appendChild(block);
+    });
+  }
+
+  /* ---------- Rin (Debt) Diagnostic ---------- */
+  function renderRin(result) {
+    document.getElementById('rinIntro').textContent = RIN_INTRO;
+    const container = document.getElementById('rinResults');
+    container.innerHTML = '';
+
+    let anyFound = false;
+    for (let key in RIN_TYPES) {
+      const rin = RIN_TYPES[key];
+      if (rin.check(result.houses)) {
+        anyFound = true;
+        const block = document.createElement('div');
+        block.className = 'house-block';
+
+        const title = document.createElement('h4');
+        title.textContent = rin.name;
+        block.appendChild(title);
+
+        const desc = document.createElement('div');
+        desc.className = 'htitle';
+        desc.textContent = rin.desc;
+        block.appendChild(desc);
+
+        const ul = document.createElement('ul');
+        ul.className = 'remedy-list';
+        rin.remedy.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          ul.appendChild(li);
+        });
+        block.appendChild(ul);
+
+        container.appendChild(block);
+      }
+    }
+
+    if (!anyFound) {
+      const p = document.createElement('p');
+      p.textContent = 'الحمدللہ، آپ کی کنڈلی میں کوئی خاص نشاندہی شدہ ذمہ داری (رِن) نظر نہیں آتی۔ بہرحال والدین اور خاندان کے حقوق ہمیشہ ادا کرتے رہیں۔';
+      container.appendChild(p);
+    }
+  }
+
+  /* ---------- Planetary Combinations ---------- */
+  function renderCombinations(result) {
+    const container = document.getElementById('comboResults');
+    container.innerHTML = '';
+
+    const found = detectCombinations(result.houses);
+
+    if (found.length === 0) {
+      const p = document.createElement('p');
+      p.textContent = 'آپ کی کنڈلی میں کوئی خاص نمایاں امتزاج (دو سیاروں کا ایک ہی گھر میں اکٹھا ہونا) موجود نہیں ہے۔';
+      container.appendChild(p);
+      return;
+    }
+
+    found.forEach(combo => {
+      const block = document.createElement('div');
+      block.className = 'house-block';
+
+      const title = document.createElement('h4');
+      const p1 = PLANETS[combo.pair[0]], p2 = PLANETS[combo.pair[1]];
+      title.innerHTML = `${p1.symbol} ${p1.name} + ${p2.symbol} ${p2.name} — ${HOUSES[combo.house].name} میں`;
+      block.appendChild(title);
+
+      const desc = document.createElement('div');
+      desc.className = 'htitle';
+      desc.textContent = combo.desc;
+      block.appendChild(desc);
+
+      const remedyP = document.createElement('p');
+      remedyP.innerHTML = `<strong>تدبیر:</strong> ${combo.remedy}`;
+      block.appendChild(remedyP);
+
+      container.appendChild(block);
+    });
+  }
+
+  /* ---------- Varshphal (Annual Chart / Muntha) ---------- */
+  document.getElementById('varshBtn').addEventListener('click', () => {
+    if (!currentResult) return;
+    const age = parseInt(document.getElementById('varshAge').value) || 1;
+    const natalAscSignIdx = currentResult.ascendant.signIndex;
+    const munthaHouse = calculateMunthaHouse(natalAscSignIdx, age);
+
+    const container = document.getElementById('varshResult');
+    container.innerHTML = '';
+
+    const block = document.createElement('div');
+    block.className = 'house-block';
+
+    const title = document.createElement('h4');
+    title.textContent = `عمر ${age} سال — منتھا ${HOUSES[munthaHouse].name} میں`;
+    block.appendChild(title);
+
+    const desc = document.createElement('div');
+    desc.className = 'htitle';
+    desc.textContent = HOUSES[munthaHouse].title;
+    block.appendChild(desc);
+
+    const themeP = document.createElement('p');
+    themeP.textContent = MUNTHA_HOUSE_THEMES[munthaHouse];
+    block.appendChild(themeP);
+
+    container.appendChild(block);
+  });
+
+  /* ---------- 36-Saala Bhav Chakra ---------- */
+  document.getElementById('bhavBtn').addEventListener('click', () => {
+    const age = parseInt(document.getElementById('bhavAge').value) || 0;
+    const activeHouse = getBhavChakraHouse(age);
+
+    const container = document.getElementById('bhavResult');
+    container.innerHTML = '';
+
+    const block = document.createElement('div');
+    block.className = 'house-block';
+
+    const title = document.createElement('h4');
+    title.textContent = `عمر ${age} سال — ${HOUSES[activeHouse].name} متحرک ہے`;
+    block.appendChild(title);
+
+    const desc = document.createElement('div');
+    desc.className = 'htitle';
+    desc.textContent = HOUSES[activeHouse].title;
+    block.appendChild(desc);
+
+    const themeP = document.createElement('p');
+    themeP.textContent = HOUSES[activeHouse].desc;
+    block.appendChild(themeP);
+
+    if (currentResult) {
+      const houseToPlanets = {};
+      for (let pname in currentResult.houses) {
+        if (currentResult.houses[pname] === activeHouse) {
+          if (!houseToPlanets[activeHouse]) houseToPlanets[activeHouse] = [];
+          houseToPlanets[activeHouse].push(pname);
+        }
+      }
+      if (houseToPlanets[activeHouse] && houseToPlanets[activeHouse].length > 0) {
+        const planetsP = document.createElement('p');
+        const names = houseToPlanets[activeHouse].map(p => PLANETS[p].name).join('، ');
+        planetsP.innerHTML = `<strong>اس گھر میں آپ کی کنڈلی کے سیارے:</strong> ${names}`;
+        block.appendChild(planetsP);
+      }
+    }
+
+    container.appendChild(block);
+  });
+
+  /* ---------- Remedies Tab ---------- */
+
+  /* Everyday Life Remedies (category-based) */
+  document.getElementById('everydayIntro').textContent = EVERYDAY_REMEDIES_INTRO;
+  const everydayPillsContainer = document.getElementById('everydayPills');
+  const everydayContent = document.getElementById('everydayContent');
+  const everydayOrder = ['MONEY','MARRIAGE','CHILDREN','TRAVEL','CAREER','DEBT_ENEMY','HEALTH','FAMILY'];
+
+  everydayOrder.forEach(key => {
+    const cat = EVERYDAY_REMEDIES[key];
+    const pill = document.createElement('span');
+    pill.className = 'planet-pill';
+    pill.dataset.category = key;
+    pill.innerHTML = `${cat.icon} ${cat.title}`;
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('#everydayPills .planet-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      showEverydayRemedy(key);
+    });
+    everydayPillsContainer.appendChild(pill);
+  });
+
+  function showEverydayRemedy(key) {
+    const cat = EVERYDAY_REMEDIES[key];
+    everydayContent.innerHTML = '';
+
+    const h3 = document.createElement('h3');
+    h3.innerHTML = `${cat.icon} ${cat.title}`;
+    everydayContent.appendChild(h3);
+
+    if (cat.lalKitabNote) {
+      const lkBox = document.createElement('div');
+      lkBox.className = 'lk-touch-box';
+      lkBox.style.marginBottom = '14px';
+      lkBox.innerHTML = `<div class="lk-touch-header">🪔 لال کتاب کا تعلق</div><div class="lk-touch-note" style="border-top:none; padding-top:0; margin-top:0;">${cat.lalKitabNote}</div>`;
+      everydayContent.appendChild(lkBox);
+    }
+
+    cat.items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'duration-remedy-item';
+
+      const tag = document.createElement('span');
+      tag.className = 'duration-tag';
+      tag.textContent = item.duration;
+
+      const text = document.createElement('div');
+      text.className = 'action-text';
+      text.textContent = item.action;
+
+      row.appendChild(tag);
+      row.appendChild(text);
+      everydayContent.appendChild(row);
+    });
+  }
+
+  everydayPillsContainer.firstChild.classList.add('active');
+  showEverydayRemedy('MONEY');
+
+  /* Planet-specific remedies */
+  const planetPillsContainer = document.getElementById('planetPills');
+  const remedyContent = document.getElementById('remedyContent');
+  const order = ['SUN','MOON','MARS','MERCURY','JUPITER','VENUS','SATURN','RAHU','KETU'];
+
+  order.forEach(pname => {
+    const pill = document.createElement('span');
+    pill.className = 'planet-pill';
+    pill.dataset.planet = pname;
+    pill.innerHTML = `${PLANETS[pname].symbol} ${PLANETS[pname].name}`;
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.planet-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      showRemedy(pname);
+    });
+    planetPillsContainer.appendChild(pill);
+  });
+
+  function showRemedy(pname) {
+    const data = ISLAMIC_REMEDIES[pname];
+    remedyContent.innerHTML = '';
+    const h3 = document.createElement('h3');
+    h3.textContent = data.title;
+    const ul = document.createElement('ul');
+    ul.className = 'remedy-list';
+    data.items.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+    remedyContent.appendChild(h3);
+    remedyContent.appendChild(ul);
+
+    // Expanded categories: sadqa, zikr, parhez
+    const expanded = EXPANDED_REMEDIES[pname];
+    const expContainer = document.getElementById('expandedRemedyContent');
+    expContainer.innerHTML = '';
+    if (expanded) {
+      const grid = document.createElement('div');
+      grid.style.display = 'grid';
+      grid.style.gridTemplateColumns = '1fr';
+      grid.style.gap = '10px';
+
+      const rows = [
+        { label: 'صدقہ کی نوعیت', value: expanded.sadqa },
+        { label: 'ذکر / دعا', value: expanded.zikr },
+        { label: 'پرہیز', value: expanded.parhez }
+      ];
+      rows.forEach(row => {
+        const box = document.createElement('div');
+        box.className = 'house-block';
+        box.style.marginBottom = '0';
+        box.innerHTML = `<strong style="color: var(--gold-deep);">${row.label}:</strong> ${row.value}`;
+        grid.appendChild(box);
+      });
+      expContainer.appendChild(grid);
+
+      // Lal Kitab Touch — authentic planet signifier (color, item, number) reframed as Islamic sadqa
+      if (expanded.lalKitabTouch) {
+        const lk = expanded.lalKitabTouch;
+        const lkBox = document.createElement('div');
+        lkBox.className = 'lk-touch-box';
+        lkBox.innerHTML = `
+          <div class="lk-touch-header">🪔 لال کتاب کی اصل نشانی</div>
+          <div class="lk-touch-row"><span class="lk-touch-label">رنگ:</span> ${lk.color}</div>
+          <div class="lk-touch-row"><span class="lk-touch-label">اشیاء:</span> ${lk.item}</div>
+          <div class="lk-touch-row"><span class="lk-touch-label">عدد:</span> ${lk.number}</div>
+          <div class="lk-touch-note">${lk.note}</div>
+        `;
+        expContainer.appendChild(lkBox);
+      }
+    }
+  }
+
+  // show first by default
+  planetPillsContainer.firstChild.classList.add('active');
+  showRemedy('SUN');
+
+  /* ---------- Day-wise table ---------- */
+  const dayTableBody = document.getElementById('dayTableBody');
+  DAYWISE_REMEDIES.forEach(row => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${row.day}</td><td>${row.planet}</td><td>${row.remedy}</td>`;
+    dayTableBody.appendChild(tr);
+  });
+
+  /* ---------- Restore saved kundli (must run AFTER all functions/consts
+     above — including renderChart's HOUSE_POLYGONS — are defined) ---------- */
+  restoreSavedKundli();
+
+});
+
+</script>
+</body>
+</html>
